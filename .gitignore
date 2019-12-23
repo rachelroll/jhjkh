@@ -1,0 +1,10 @@
+.idea
+composer.lock
+/runtime/
+/vendor/
+/.settings/
+/composer.lock
+/.buildpath
+/.project
+*.log
+.env
