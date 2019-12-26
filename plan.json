@@ -7,29 +7,46 @@
       {
         "day_of_the_week": "0",
         "base": {
-          "wake_up_time": "7:30",
+          "wake_up_time": "07:30",
           "fall_asleep_time": "11:30",
           "lunch_break_start": "13:00",
           "lunch_break_end": "13:30"
         },
         "recipe": {
-          "(plan_item_id)": [
-            {
-              "set_notice_time": "6:00",
-              "article_list": [
-                [
-                  "1",
-                  "2",
-                  "3"
-                ],
-                [
-                  "8",
-                  "11"
-                ]
+          "...(plan_item_id)": {
+            "set_notice_time": "08:00",
+            "article_list": [
+              [
+                "1",
+                "2",
+                "3"
+              ],
+              [
+                "8",
+                "11"
               ]
-            }
-          ]
-        }
+            ]
+          }
+        },
+        "sport": {
+          "...(plan_item_id)": {
+            "start_time": "08:00",
+            "end_time": "08:00",
+            "target_step": "08:00",
+            "article_list": [
+              [
+                "1",
+                "2",
+                "3"
+              ],
+              [
+                "8",
+                "11"
+              ]
+            ]
+          }
+        },
+        "info": [2,3,5,8]
       }
     ]
   }

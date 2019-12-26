@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
+Source Server         : 127.0.0.1
 Source Server Version : 50553
-Source Host           : localhost:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : fastadmin_jhjkh
 
 Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-12-26 19:30:20
+Date: 2019-12-26 23:56:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -652,26 +652,6 @@ INSERT INTO `fa_app_column` VALUES ('3', '教练', '教练描述', '/assets/img/
 INSERT INTO `fa_app_column` VALUES ('4', '膳食', '膳食描述', '/assets/img/qrcode.png', '0', '0', '1577020639', '1577020639');
 
 -- ----------------------------
--- Table structure for fa_app_column_item
--- ----------------------------
-DROP TABLE IF EXISTS `fa_app_column_item`;
-CREATE TABLE `fa_app_column_item` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `column_id` int(11) NOT NULL,
-  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '元素名称',
-  `cover_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '封面',
-  `sort` int(11) NOT NULL,
-  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '状态:0=正常,1=禁用',
-  `create_time` int(11) NOT NULL,
-  `update_time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='栏目计划元素';
-
--- ----------------------------
--- Records of fa_app_column_item
--- ----------------------------
-
--- ----------------------------
 -- Table structure for fa_app_comment
 -- ----------------------------
 DROP TABLE IF EXISTS `fa_app_comment`;
@@ -810,6 +790,27 @@ CREATE TABLE `fa_app_plan` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for fa_app_plan_data
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_data`;
+CREATE TABLE `fa_app_plan_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cover_image` varchar(255) NOT NULL COMMENT '封面图片',
+  `name` varchar(30) NOT NULL COMMENT '数据名称',
+  `sketch` varchar(30) NOT NULL COMMENT '简述',
+  `type_id` enum('0','1') NOT NULL DEFAULT '0' COMMENT '数据类型:0=普通数据,1=血压数据',
+  `sort` int(11) NOT NULL,
+  `status` enum('0','1') NOT NULL DEFAULT '1' COMMENT '状态:0=隐藏,1=展示',
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='数据类型';
+
+-- ----------------------------
+-- Records of fa_app_plan_data
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for fa_app_plan_event_base
 -- ----------------------------
 DROP TABLE IF EXISTS `fa_app_plan_event_base`;
@@ -871,10 +872,13 @@ CREATE TABLE `fa_app_plan_event_recipe` (
 DROP TABLE IF EXISTS `fa_app_plan_event_recipe_list`;
 CREATE TABLE `fa_app_plan_event_recipe_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `recipe_id` int(11) NOT NULL,
+  `type_id` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '组类型:0=主食,1=辅食',
+  `recipe_id` int(11) NOT NULL COMMENT '食谱事件ID',
   `article_id` int(11) NOT NULL,
+  `group_sort` int(11) NOT NULL COMMENT '组排序',
+  `article_sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='食谱所含商品';
 
 -- ----------------------------
 -- Records of fa_app_plan_event_recipe_list
@@ -895,23 +899,6 @@ CREATE TABLE `fa_app_plan_event_sport` (
 
 -- ----------------------------
 -- Records of fa_app_plan_event_sport
--- ----------------------------
-
--- ----------------------------
--- Table structure for fa_app_plan_item_label
--- ----------------------------
-DROP TABLE IF EXISTS `fa_app_plan_item_label`;
-CREATE TABLE `fa_app_plan_item_label` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `plan_item_id` int(11) NOT NULL DEFAULT '0' COMMENT '计划元素ID',
-  `label_id` int(11) NOT NULL DEFAULT '0' COMMENT '标签ID',
-  `create_time` int(11) NOT NULL DEFAULT '0',
-  `update_time` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划元素标签关联';
-
--- ----------------------------
--- Records of fa_app_plan_item_label
 -- ----------------------------
 
 -- ----------------------------
