@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
+Source Server         : localhost_3306
 Source Server Version : 50553
-Source Host           : 127.0.0.1:3306
+Source Host           : localhost:3306
 Source Database       : fastadmin_jhjkh
 
 Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-12-26 00:03:28
+Date: 2019-12-26 19:30:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -652,6 +652,26 @@ INSERT INTO `fa_app_column` VALUES ('3', '教练', '教练描述', '/assets/img/
 INSERT INTO `fa_app_column` VALUES ('4', '膳食', '膳食描述', '/assets/img/qrcode.png', '0', '0', '1577020639', '1577020639');
 
 -- ----------------------------
+-- Table structure for fa_app_column_item
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_column_item`;
+CREATE TABLE `fa_app_column_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `column_id` int(11) NOT NULL,
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '元素名称',
+  `cover_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '封面',
+  `sort` int(11) NOT NULL,
+  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '状态:0=正常,1=禁用',
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='栏目计划元素';
+
+-- ----------------------------
+-- Records of fa_app_column_item
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for fa_app_comment
 -- ----------------------------
 DROP TABLE IF EXISTS `fa_app_comment`;
@@ -766,6 +786,132 @@ CREATE TABLE `fa_app_message` (
 
 -- ----------------------------
 -- Records of fa_app_message
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fa_app_plan
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan`;
+CREATE TABLE `fa_app_plan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL COMMENT '用户',
+  `cover_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '封面',
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划名称',
+  `number_of_days` int(11) NOT NULL COMMENT '合计天数',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '状态:0=隐藏,1=展示',
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划';
+
+-- ----------------------------
+-- Records of fa_app_plan
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fa_app_plan_event_base
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_event_base`;
+CREATE TABLE `fa_app_plan_event_base` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
+  `wake_up_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '起床时间',
+  `fall_asleep_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '入睡时间',
+  `lunch_break_start` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '午睡开始时间',
+  `lunch_break_end` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '午睡结束时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划基础事件';
+
+-- ----------------------------
+-- Records of fa_app_plan_event_base
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fa_app_plan_event_info
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_event_info`;
+CREATE TABLE `fa_app_plan_event_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划数据事件';
+
+-- ----------------------------
+-- Records of fa_app_plan_event_info
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fa_app_plan_event_recipe
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_event_recipe`;
+CREATE TABLE `fa_app_plan_event_recipe` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
+  `set_notice_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '提醒时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划食谱事件';
+
+-- ----------------------------
+-- Records of fa_app_plan_event_recipe
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fa_app_plan_event_recipe_list
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_event_recipe_list`;
+CREATE TABLE `fa_app_plan_event_recipe_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `recipe_id` int(11) NOT NULL,
+  `article_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of fa_app_plan_event_recipe_list
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fa_app_plan_event_sport
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_event_sport`;
+CREATE TABLE `fa_app_plan_event_sport` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划运动事件';
+
+-- ----------------------------
+-- Records of fa_app_plan_event_sport
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fa_app_plan_item_label
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_item_label`;
+CREATE TABLE `fa_app_plan_item_label` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `plan_item_id` int(11) NOT NULL DEFAULT '0' COMMENT '计划元素ID',
+  `label_id` int(11) NOT NULL DEFAULT '0' COMMENT '标签ID',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划元素标签关联';
+
+-- ----------------------------
+-- Records of fa_app_plan_item_label
 -- ----------------------------
 
 -- ----------------------------

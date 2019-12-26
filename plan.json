@@ -1,0 +1,36 @@
+[
+  {
+    "plan_name": "LrhX7PLj44",
+    "plan_cover_image": "/uploads/img.png",
+    "number_of_days": "21",
+    "setting": [
+      {
+        "day_of_the_week": "0",
+        "base": {
+          "wake_up_time": "7:30",
+          "fall_asleep_time": "11:30",
+          "lunch_break_start": "13:00",
+          "lunch_break_end": "13:30"
+        },
+        "recipe": {
+          "(plan_item_id)": [
+            {
+              "set_notice_time": "6:00",
+              "article_list": [
+                [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                [
+                  "8",
+                  "11"
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
