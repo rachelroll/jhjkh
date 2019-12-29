@@ -26,40 +26,15 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
                         {field: 'user_id', title: __('User_id')},
-                        {field: 'appuser.nickname', title: __('Appuser.nickname')},
-                        {
-                            field: 'appuser.avatar',
-                            title: __('Appuser.avatar'),
-                            events: Table.api.events.image,
-                            formatter: Table.api.formatter.image
-                        },
                         {field: 'step_number', title: __('Step_number')},
                         {field: 'target_step', title: __('Target_step')},
-                        {field: 'likes_count', title: __('Likes_count')},
+                        {field: 'like_count', title: __('Like_count')},
                         {field: 'timestamp', title: __('Timestamp')},
-                        {field: 'timestamp_text', title: __('Timestamp')},
-                        {
-                            field: 'create_time',
-                            title: __('Create_time'),
-                            operate: 'RANGE',
-                            addclass: 'datetimerange',
-                            formatter: Table.api.formatter.datetime
-                        },
-                        {
-                            field: 'update_time',
-                            title: __('Update_time'),
-                            operate: 'RANGE',
-                            addclass: 'datetimerange',
-                            formatter: Table.api.formatter.datetime
-                        },
-
-                        {
-                            field: 'operate',
-                            title: __('Operate'),
-                            table: table,
-                            events: Table.api.events.operate,
-                            formatter: Table.api.formatter.operate
-                        }
+                        {field: 'create_time', title: __('Create_time'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
+                        {field: 'update_time', title: __('Update_time'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
+                        {field: 'appuser.nickname', title: __('Appuser.nickname')},
+                        {field: 'appuser.avatar', title: __('Appuser.avatar'), events: Table.api.events.image, formatter: Table.api.formatter.image},
+                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]
             });

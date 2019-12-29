@@ -5,10 +5,10 @@ namespace app\admin\model\app;
 use think\Model;
 
 
-class Step extends Model
+class ActivityView extends Model
 {
     // 表名
-    protected $name = 'app_step';
+    protected $name = 'app_activity_view';
 
     // 自动写入时间戳字段
     protected $autoWriteTimestamp = true;
@@ -16,15 +16,9 @@ class Step extends Model
     // 追加属性
     protected $append = [
         'create_time_text',
-        'update_time_text',
-        'timestamp_text',
+        'update_time_text'
     ];
 
-    public function getTimestampTextAttr($value, $data)
-    {
-        $value = $data['timestamp'];
-        return date('Y-m-d', $value);
-    }
 
     public function getCreateTimeTextAttr($value, $data)
     {
@@ -50,13 +44,19 @@ class Step extends Model
     }
 
 
-    public function appuser()
+    public function operateUser()
     {
-        return $this->belongsTo('app\admin\model\app\User', 'user_id', 'id', [], 'LEFT')->setEagerlyType(0);
+        return $this->belongsTo('app\admin\model\app\User', 'operate_user_id', 'id', [], 'LEFT')->setEagerlyType(0);
     }
 
-    public function likeFlag()
+    public function targetUser()
     {
-        return $this->hasMany('app\admin\model\app\StepLike', 'step_id');
+        return $this->belongsTo('app\admin\model\app\User', 'operate_user_id', 'id', [], 'LEFT')->setEagerlyType(0);
+    }
+
+
+    public function appactivity()
+    {
+        return $this->belongsTo('app\admin\model\app\Activity', 'activity_id', 'id', [], 'LEFT')->setEagerlyType(0);
     }
 }

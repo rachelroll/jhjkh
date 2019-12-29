@@ -113,14 +113,4 @@ class Banner extends Model
     }
 
 
-    public function appactivity()
-    {
-        return $this->belongsTo('app\admin\model\app\Activity', 'activity_id', 'id', [], 'LEFT')->setEagerlyType(0);
-    }
-
-
-    public function appuser()
-    {
-        return $this->belongsTo('app\admin\model\app\User', 'user_id', 'id', [], 'LEFT')->setEagerlyType(0);
-    }
 }

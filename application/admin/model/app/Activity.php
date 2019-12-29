@@ -85,5 +85,15 @@ class Activity extends Model
         return $value === '' ? null : ($value && !is_numeric($value) ? strtotime($value) : $value);
     }
 
+    public function likeFlag()
+    {
+        return $this->hasMany('ActivityLike', 'activity_id');
+    }
+
+    public function applyFlag()
+    {
+        return $this->hasMany('ActivityApply', 'activity_id');
+    }
+
 
 }

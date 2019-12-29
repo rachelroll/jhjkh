@@ -23,7 +23,7 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Position')}:</label>
         <div class="col-xs-12 col-sm-8">
-                        
+
             <select  id="c-position" data-rule="required" class="form-control selectpicker" name="row[position]">
                 {foreach name="positionList" item="vo"}
                     <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
@@ -35,7 +35,7 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Click_type')}:</label>
         <div class="col-xs-12 col-sm-8">
-                        
+
             <select  id="c-click_type" data-rule="required" class="form-control selectpicker" name="row[click_type]">
                 {foreach name="clickTypeList" item="vo"}
                     <option value="{$key}" {in name="key" value="0"}selected{/in}>{$vo}</option>
@@ -44,40 +44,40 @@
 
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label class="control-label col-xs-12 col-sm-2">{:__('Url_path')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-url_path" data-rule="required" class="form-control" name="row[url_path]" type="text">
+            <input id="c-url_path" class="form-control" name="row[url_path]" type="text">
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label class="control-label col-xs-12 col-sm-2">{:__('Activity_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-activity_id" data-rule="required" data-source="activity/index" class="form-control selectpage" name="row[activity_id]" type="text" value="">
+            <input id="c-activity_id" data-source="app/activity/index" data-field="title" class="form-control selectpage" name="row[activity_id]" type="text" value="">
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label class="control-label col-xs-12 col-sm-2">{:__('User_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-user_id" data-rule="required" data-source="user/user/index" data-field="nickname" class="form-control selectpage" name="row[user_id]" type="text" value="">
+            <input id="c-user_id" data-source="app/user/index" data-field="nickname" class="form-control selectpage" name="row[user_id]" type="text" value="">
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label class="control-label col-xs-12 col-sm-2">{:__('Content')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50"></textarea>
+            <textarea id="c-content" class="form-control editor" rows="5" name="row[content]" cols="50"></textarea>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Start_time')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-start_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[start_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+            <input id="c-start_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" name="row[start_time]" type="text">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('End_time')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-end_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[end_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+            <input id="c-end_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" name="row[end_time]" type="text">
         </div>
     </div>
     <div class="form-group">
@@ -89,25 +89,13 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
         <div class="col-xs-12 col-sm-8">
-            
+
             <div class="radio">
             {foreach name="statusList" item="vo"}
-            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="1"}checked{/in} /> {$vo}</label> 
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="1"}checked{/in} /> {$vo}</label>
             {/foreach}
             </div>
 
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('Create_time')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-create_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="{:date('Y-m-d H:i:s')}">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('Update_time')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-update_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[update_time]" type="text" value="{:date('Y-m-d H:i:s')}">
         </div>
     </div>
     <div class="form-group layer-footer">

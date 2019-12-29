@@ -4,8 +4,8 @@
 namespace app\api\controller\v1;
 
 
-use app\admin\model\shop\Banner;
-use app\admin\model\shop\order\Address;
+use app\admin\model\app\Banner as BannerModel;
+use app\admin\model\app\Theme as ThemeModel;
 use app\admin\model\shop\Setting;
 use app\api\controller\Api;
 
@@ -15,28 +15,42 @@ class System extends Api
     protected $noNeedRight = ['*'];
 
     /**
-     * 首页轮播图
+     * 首页轮播图列表
      */
-    public function get_banner()
+    public function fetch_banner_list()
     {
-        $data = Banner::where([
-            'status' => 'normal',
+        $data = BannerModel::where([
+            'status' => 1,
         ])->order([
-            'sort' => 'desc'
+            'sort' => 'desc',
+            'id' => 'desc',
         ])->select();
         $this->returnmsg(200, 'success', $data);
     }
 
     /**
-     * 用户收货地址
+     * 首页轮播图详情
+     * @params id
      */
-    public function get_default_address()
+    public function fetch_banner_detail()
     {
-        $data = Address::where([
-            'status' => 'normal',
-            'user_id' => 0,
+        $data = BannerModel::where([
+            'status' => 1,
+            'id' => $this->clientInfo['id'],
+        ])->find();
+        $this->returnmsg(200, 'success', $data);
+    }
+
+    /**
+     * 获取主题列表
+     */
+    public function fetch_theme_list()
+    {
+        $data = ThemeModel::where([
+            'status' => 1,
         ])->order([
-            'sort' => 'desc'
+            'sort' => 'desc',
+            'id' => 'desc',
         ])->select();
         $this->returnmsg(200, 'success', $data);
     }
