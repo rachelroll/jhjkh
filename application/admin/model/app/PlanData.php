@@ -5,19 +5,48 @@ namespace app\admin\model\app;
 use think\Model;
 
 
-class Comment extends Model
+class PlanData extends Model
 {
     // 表名
-    protected $name = 'app_comment';
+    protected $name = 'app_plan_data';
 
     // 自动写入时间戳字段
     protected $autoWriteTimestamp = true;
 
     // 追加属性
     protected $append = [
+        'type_id_text',
+        'status_text',
         'create_time_text',
         'update_time_text'
     ];
+
+
+    public function getTypeIdList()
+    {
+        return ['0' => __('Type_id 0'), '1' => __('Type_id 1')];
+    }
+
+    public function getStatusList()
+    {
+        return ['0' => __('Status 0'), '1' => __('Status 1')];
+    }
+
+
+    public function getTypeIdTextAttr($value, $data)
+    {
+        $value = $value ? $value : (isset($data['type_id']) ? $data['type_id'] : '');
+        $list = $this->getTypeIdList();
+        return isset($list[$value]) ? $list[$value] : '';
+    }
+
+
+    public function getStatusTextAttr($value, $data)
+    {
+        $value = $value ? $value : (isset($data['status']) ? $data['status'] : '');
+        $list = $this->getStatusList();
+        return isset($list[$value]) ? $list[$value] : '';
+    }
 
 
     public function getCreateTimeTextAttr($value, $data)
@@ -43,18 +72,5 @@ class Comment extends Model
         return $value === '' ? null : ($value && !is_numeric($value) ? strtotime($value) : $value);
     }
 
-    public function likeFlag()
-    {
-        return $this->hasMany('ActivityLike', 'activity_id');
-    }
 
-    public function appuser()
-    {
-        return $this->belongsTo('app\admin\model\app\User', 'user_id', 'id', [], 'LEFT')->setEagerlyType(0);
-    }
-
-    public function apparticle()
-    {
-        return $this->belongsTo('app\admin\model\app\Article', 'article_id', 'id', [], 'LEFT')->setEagerlyType(0);
-    }
 }

@@ -6,6 +6,7 @@ namespace app\api\controller\v1\article;
 
 use app\api\controller\Api;
 use app\admin\model\app\Comment as CommentModel;
+use app\admin\model\app\CommentLike as CommentLikeModel;
 use app\admin\model\app\Article as ArticleModel;
 use think\Db;
 use think\Exception;
@@ -77,8 +78,14 @@ class Comment extends Api
      */
     public function fetch_list()
     {
+        $user_id = $this->user_id;
         $this->checkParam(['article_id' => 'require']);
         $data = CommentModel::with(['appuser'])
+//            ->withCount([
+//                'likeFlag' => function ($query) use ($user_id) {
+//                    $query->where('operate_user_id', $user_id);
+//                },
+//            ])
             ->where([
                 'article_id' => $this->clientInfo['article_id']
             ])->order([
@@ -105,6 +112,40 @@ class Comment extends Api
                 'id' => 'desc',
             ])->select();
         $this->returnmsg(200, 'success', $data);
+    }
+
+    /**
+     * 点赞/取消赞
+     */
+    public function like_operate()
+    {
+        $this->checkParam(['comment_id' => 'require']);
+        Db::startTrans();
+        try {
+            $commentData = CommentModel::where(['id' => $this->clientInfo['comment_id']])->find();
+            $condition = [
+                'comment_id' => $this->clientInfo['comment_id'],
+                'operate_user_id' => $this->user_id,
+                'target_user_id' => $commentData['user_id'],
+            ];
+            $data = CommentLikeModel::where($condition)->limit(1)->find();
+            if (empty($data)) {
+                CommentLikeModel::create($condition);
+                $commentData->like_count = $commentData->like_count + 1;
+                $commentData->save();
+
+            } else {
+
+                CommentLikeModel::where($condition)->delete();
+                $commentData->like_count = $commentData->like_count - 1;
+                $commentData->save();
+            }
+            Db::commit();
+        } catch (Exception $exception) {
+            Db::rollback();
+            $this->returnmsg(400, $exception->getMessage());
+        }
+        $this->returnmsg(200, 'success');
     }
 
 }
