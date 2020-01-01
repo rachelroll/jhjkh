@@ -50,6 +50,7 @@ class Article extends Model
                     'image' => $item['appcolumn']['image'],
                 ],
                 'labelInfo' => $item['label_arr'],
+                'like_flag' => count($item['like_flag']),
                 'create_time_text' => $item['create_time_text'],
             ];
         }
@@ -120,12 +121,15 @@ class Article extends Model
         return $value === '' ? null : ($value && !is_numeric($value) ? strtotime($value) : $value);
     }
 
+    public function likeFlag()
+    {
+        return $this->hasMany('app\admin\model\app\ArticleLike', 'article_id');
+    }
 
     public function appuser()
     {
         return $this->belongsTo('app\admin\model\app\User', 'user_id', 'id', [], 'LEFT')->setEagerlyType(0);
     }
-
 
     public function appcolumn()
     {

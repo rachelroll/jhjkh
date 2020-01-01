@@ -4,6 +4,7 @@
 namespace app\api\controller\v1\article;
 
 
+use app\admin\model\app\Dynamic as DynamicModel;
 use app\api\controller\Api;
 use app\admin\model\app\Comment as CommentModel;
 use app\admin\model\app\CommentLike as CommentLikeModel;
@@ -24,14 +25,25 @@ class Comment extends Api
         ]);
         Db::startTrans();
         try {
-            CommentModel::create([
+            $commentData = CommentModel::create([
                 'article_id' => $this->clientInfo['article_id'],
                 'content' => $this->clientInfo['content'],
                 'user_id' => $this->user_id,
             ]);
-            ArticleModel::where([
+            $articleData = ArticleModel::where([
                 'id' => $this->clientInfo['article_id'],
-            ])->setInc('comment_count');
+            ])->find();
+            $articleData->setInc('comment_count');
+            $articleData->save();
+            DynamicModel::create([
+                'description' => '评论文章',
+                'user_id' => $this->user_id,
+                'article_type_id' => $articleData['type_id'],
+                'article_column_id' => $articleData['column_id'],
+                'article_id' => $articleData['id'],
+                'comment_id' => $commentData['id'],
+                'type_id' => 2,
+            ]);
             Db::commit();
         } catch (Exception $exception) {
             Db::rollback();
@@ -80,12 +92,12 @@ class Comment extends Api
     {
         $user_id = $this->user_id;
         $this->checkParam(['article_id' => 'require']);
-        $data = CommentModel::with(['appuser'])
-//            ->withCount([
-//                'likeFlag' => function ($query) use ($user_id) {
-//                    $query->where('operate_user_id', $user_id);
-//                },
-//            ])
+        $data = CommentModel::with([
+            'appuser',
+            'likeFlag' => function ($query) use ($user_id) {
+                $query->where('operate_user_id', $user_id);
+            },
+        ])
             ->where([
                 'article_id' => $this->clientInfo['article_id']
             ])->order([
@@ -93,17 +105,41 @@ class Comment extends Api
                 'reply_count' => 'desc',
                 'id' => 'desc',
             ])->select();
+        $formaterData = [];
+        foreach ($data as $key => $value) {
+            $formaterData[] = [
+                'id' => $value['id'],
+                'content' => $value['content'],
+                'like_count' => $value['like_count'],
+                'reply_count' => $value['reply_count'],
+                'create_time_text' => $value['create_time_text'],
+                'userInfo' => [
+                    'id' => $value['appuser']['id'],
+                    'nickname' => $value['appuser']['nickname'],
+                    'name' => $value['appuser']['name'],
+                    'avatar' => $value['appuser']['avatar'],
+                ],
+                'like_flag' => count($value['like_flag'])
+            ];
+        }
+        $data = $formaterData;
         $this->returnmsg(200, 'success', $data);
     }
 
     /**
-     * 查看评论列表
+     * 查看评论回复列表
      * @param article_id
      */
     public function fetch_reply_list()
     {
+        $user_id = $this->user_id;
         $this->checkParam(['pid' => 'require']);
-        $data = CommentModel::with(['appuser'])
+        $data = CommentModel::with([
+            'appuser',
+            'likeFlag' => function ($query) use ($user_id) {
+                $query->where('operate_user_id', $user_id);
+            },
+        ])
             ->where([
                 'pid' => $this->clientInfo['pid']
             ])->order([
@@ -111,6 +147,24 @@ class Comment extends Api
                 'reply_count' => 'desc',
                 'id' => 'desc',
             ])->select();
+        $formaterData = [];
+        foreach ($data as $key => $value) {
+            $formaterData[] = [
+                'id' => $value['id'],
+                'content' => $value['content'],
+                'like_count' => $value['like_count'],
+                'reply_count' => $value['reply_count'],
+                'create_time_text' => $value['create_time_text'],
+                'userInfo' => [
+                    'id' => $value['appuser']['id'],
+                    'nickname' => $value['appuser']['nickname'],
+                    'name' => $value['appuser']['name'],
+                    'avatar' => $value['appuser']['avatar'],
+                ],
+                'like_flag' => count($value['like_flag'])
+            ];
+        }
+        $data = $formaterData;
         $this->returnmsg(200, 'success', $data);
     }
 

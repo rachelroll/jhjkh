@@ -4,6 +4,7 @@
 namespace app\api\controller\v1\activity;
 
 
+use app\admin\model\app\Dynamic as DynamicModel;
 use app\api\controller\Api;
 use app\admin\model\app\ActivityLike as ActivityLikeModel;
 use app\admin\model\app\Activity as ActivityModel;
@@ -27,10 +28,23 @@ class Like extends Api
             ];
             $data = ActivityLikeModel::where($condition)->limit(1)->find();
             if (empty($data)) {
-                ActivityLikeModel::create($condition);
+                $dynamicLikeData = ActivityLikeModel::create($condition);
                 $activityData->like_count = $activityData->like_count + 1;
                 $activityData->save();
 
+                $dynamicCount = DynamicModel::where([
+                    'type_id' => 4,
+                    'activity_id' => $activityData['id'],
+                ])->count();
+                if (!$dynamicCount) {
+                    DynamicModel::create([
+                        'description' => '点赞活动',
+                        'user_id' => $this->user_id,
+                        'activity_id' => $activityData['id'],
+                        'article_like_id' => $dynamicLikeData['id'],
+                        'type_id' => 4,
+                    ]);
+                }
             } else {
 
                 ActivityLikeModel::where($condition)->delete();

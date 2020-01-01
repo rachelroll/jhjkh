@@ -45,7 +45,7 @@ class Comment extends Model
 
     public function likeFlag()
     {
-        return $this->hasMany('ActivityLike', 'activity_id');
+        return $this->hasMany('app\admin\model\app\CommentLike', 'comment_id');
     }
 
     public function appuser()

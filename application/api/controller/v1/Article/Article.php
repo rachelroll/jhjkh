@@ -13,6 +13,7 @@ use app\admin\model\app\User as UserModel;
 use app\admin\model\app\Theme as ThemeModel;
 use app\admin\model\app\Label as LabelModel;
 use app\admin\model\app\ArticleView as ArticleViewModel;
+use app\admin\model\app\Dynamic as DynamicModel;
 
 class Article extends Api
 {
@@ -57,13 +58,21 @@ class Article extends Api
                 }
                 (new ArticleLabelModel)->saveAll($labelArrData);
             }
+            DynamicModel::create([
+                'description' => '发布文章',
+                'user_id' => $this->user_id,
+                'article_type_id' => $articleData['type_id'],
+                'article_column_id' => $articleData['column_id'],
+                'article_id' => $articleData['id'],
+                'type_id' => 1,
+            ]);
 
             Db::commit();
         } catch (Exception $exception) {
             Db::rollback();
             $this->returnmsg(400, $exception->getMessage());
         }
-        $this->returnmsg(200);
+        $this->returnmsg(200, 'success');
     }
 
     /**
@@ -72,7 +81,7 @@ class Article extends Api
      * @params theme_id 主题
      * @params column_id 栏目
      */
-    public function fetch_article_list()
+    public function fetch_list()
     {
         $this->checkParam([
             'type_id' => 'require|in:0,1'
@@ -88,9 +97,16 @@ class Article extends Api
 
         $condition['column_id'] = !empty($this->clientInfo['column_id']) ? $this->clientInfo['column_id'] : 0;
 
+        $user_id = $this->user_id;
         $model = new ArticleModel();
         $data = $model
-            ->with(['appuser', 'appcolumn'])
+            ->with([
+                'appuser',
+                'appcolumn',
+                'likeFlag' => function ($query) use ($user_id) {
+                    $query->where('operate_user_id', $user_id);
+                },
+            ])
             ->where($condition)
             ->order(['sort' => 'desc', 'id' => 'desc'])
             ->paginate();
@@ -105,9 +121,16 @@ class Article extends Api
     public function fetch_detail()
     {
         $this->checkParam(['id' => 'require']);
+        $user_id = $this->user_id;
         $model = new ArticleModel();
         $data = $model
-            ->with(['appuser', 'appcolumn'])
+            ->with([
+                'appuser',
+                'appcolumn',
+                'likeFlag' => function ($query) use ($user_id) {
+                    $query->where('operate_user_id', $user_id);
+                },
+            ])
             ->limit(1)
             ->find();
         $condition = [
@@ -121,6 +144,32 @@ class Article extends Api
             $data->view_count = $data->view_count + 1;
             $data->save();
         }
+        $data = json_decode(json_encode($data), true);
+        $data['like_flag'] = count($data['like_flag']);
         $this->returnmsg(200, 'success', $data);
+    }
+
+    /**
+     * 转发文章分享至个人动态
+     */
+    public function share()
+    {
+        $this->checkParam(['id' => 'require']);
+        $articleData = ArticleModel::where(['id' => $this->clientInfo['id']])->find();
+        $dynamicCount = DynamicModel::where([
+            'type_id' => 5,
+            'article_id' => $articleData['id'],
+        ])->count();
+        if (!$dynamicCount) {
+            DynamicModel::create([
+                'description' => '转发文章',
+                'user_id' => $this->user_id,
+                'article_type_id' => $articleData['type_id'],
+                'article_column_id' => $articleData['column_id'],
+                'article_id' => $articleData['id'],
+                'type_id' => 5,
+            ]);
+        }
+        $this->returnmsg(200, 'success');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace app\api\controller\v1\activity;
 
+use app\admin\model\app\Dynamic as DynamicModel;
 use app\api\controller\Api;
 use app\admin\model\app\Activity as ActivityModel;
 use app\admin\model\app\ActivityApply as ActivityApplyModel;
@@ -84,6 +85,28 @@ class Activity extends Api
             $this->returnmsg(400, $exception->getMessage());
         }
 
+        $this->returnmsg(200, 'success');
+    }
+
+    /**
+     * 转发活动分享至个人动态
+     */
+    public function share()
+    {
+        $this->checkParam(['id' => 'require']);
+        $activityData = ActivityModel::where(['id' => $this->clientInfo['id']])->find();
+        $dynamicCount = DynamicModel::where([
+            'type_id' => 6,
+            'activity_id' => $activityData['id'],
+        ])->count();
+        if (!$dynamicCount) {
+            DynamicModel::create([
+                'description' => '转发动态',
+                'user_id' => $this->user_id,
+                'activity_id' => $activityData['id'],
+                'type_id' => 6,
+            ]);
+        }
         $this->returnmsg(200, 'success');
     }
 }

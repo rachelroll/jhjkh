@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-12-31 00:44:39
+Date: 2020-01-02 01:08:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,7 +41,7 @@ CREATE TABLE `fa_admin` (
 -- ----------------------------
 -- Records of fa_admin
 -- ----------------------------
-INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20191229/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1577715400', '127.0.0.1', '1492186163', '1577715400', '4769f854-be3a-494f-8a5a-5845cd1bb4f2', 'normal');
+INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20191229/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1577872340', '127.0.0.1', '1492186163', '1577872340', 'ae30d5f5-75cf-49ac-849e-6168ac897206', 'normal');
 
 -- ----------------------------
 -- Table structure for fa_admin_log
@@ -59,7 +59,7 @@ CREATE TABLE `fa_admin_log` (
   `createtime` int(10) DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`id`),
   KEY `name` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
 
 -- ----------------------------
 -- Records of fa_admin_log
@@ -112,6 +112,118 @@ INSERT INTO `fa_admin_log` VALUES ('45', '1', 'admin', '/gWqP6hutKT.php/app/plan
 INSERT INTO `fa_admin_log` VALUES ('46', '1', 'admin', '/gWqP6hutKT.php/app/plan_sport/add?dialog=1', '小程序设置 运动类型 添加', '{\"dialog\":\"1\",\"row\":{\"cover_image\":\"\\/uploads\\/20191229\\/26f5e51b8ac7fbd6f1c649cc45a18265.png\",\"name\":\"\\u5065\\u5eb7\\u64cd\",\"sketch\":\"\\u5065\\u5eb7\\u64cd\\u63cf\\u8ff0\",\"type_id\":\"0\",\"sort\":\"0\",\"status\":\"1\"}}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577718774');
 INSERT INTO `fa_admin_log` VALUES ('47', '1', 'admin', '/gWqP6hutKT.php/app/plan_sport/add?dialog=1', '小程序设置 运动类型 添加', '{\"dialog\":\"1\",\"row\":{\"cover_image\":\"\\/uploads\\/20191229\\/26f5e51b8ac7fbd6f1c649cc45a18265.png\",\"name\":\"\\u6e38\\u6cf3\",\"sketch\":\"\\u6e38\\u6cf3\\u63cf\\u8ff0\",\"type_id\":\"0\",\"sort\":\"0\",\"status\":\"1\"}}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577718799');
 INSERT INTO `fa_admin_log` VALUES ('48', '1', 'admin', '/gWqP6hutKT.php/app/plan_sport/edit/ids/4?dialog=1', '小程序设置 运动类型 编辑', '{\"dialog\":\"1\",\"row\":{\"cover_image\":\"\\/uploads\\/20191229\\/26f5e51b8ac7fbd6f1c649cc45a18265.png\",\"name\":\"\\u5065\\u5eb7\\u64cd\",\"sketch\":\"\\u5065\\u5eb7\\u64cd\\u63cf\\u8ff0\",\"type_id\":\"1\",\"sort\":\"0\",\"status\":\"1\"},\"ids\":\"4\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577718806');
+INSERT INTO `fa_admin_log` VALUES ('49', '1', 'admin', '/gWqP6hutKT.php/index/login?url=%2FgWqP6hutKT.php', '登录', '{\"url\":\"\\/gWqP6hutKT.php\",\"__token__\":\"b35f98cc8880cbdbe8765142aa49148d\",\"username\":\"admin\",\"captcha\":\"4vqj\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577872340');
+INSERT INTO `fa_admin_log` VALUES ('50', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874362');
+INSERT INTO `fa_admin_log` VALUES ('51', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_dynamic\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874366');
+INSERT INTO `fa_admin_log` VALUES ('52', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"0\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_dynamic\",\"controller\":\"app\\/Dynamic\",\"model\":\"\",\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874452');
+INSERT INTO `fa_admin_log` VALUES ('53', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874458');
+INSERT INTO `fa_admin_log` VALUES ('54', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874458');
+INSERT INTO `fa_admin_log` VALUES ('55', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874458');
+INSERT INTO `fa_admin_log` VALUES ('56', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874458');
+INSERT INTO `fa_admin_log` VALUES ('57', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_activity\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874460');
+INSERT INTO `fa_admin_log` VALUES ('58', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_activity\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874460');
+INSERT INTO `fa_admin_log` VALUES ('59', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874465');
+INSERT INTO `fa_admin_log` VALUES ('60', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874465');
+INSERT INTO `fa_admin_log` VALUES ('61', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874465');
+INSERT INTO `fa_admin_log` VALUES ('62', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874465');
+INSERT INTO `fa_admin_log` VALUES ('63', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_article\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874471');
+INSERT INTO `fa_admin_log` VALUES ('64', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_article\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874471');
+INSERT INTO `fa_admin_log` VALUES ('65', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874479');
+INSERT INTO `fa_admin_log` VALUES ('66', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874479');
+INSERT INTO `fa_admin_log` VALUES ('67', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874479');
+INSERT INTO `fa_admin_log` VALUES ('68', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874479');
+INSERT INTO `fa_admin_log` VALUES ('69', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_comment\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874485');
+INSERT INTO `fa_admin_log` VALUES ('70', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_comment\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874485');
+INSERT INTO `fa_admin_log` VALUES ('71', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874502');
+INSERT INTO `fa_admin_log` VALUES ('72', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874502');
+INSERT INTO `fa_admin_log` VALUES ('73', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874502');
+INSERT INTO `fa_admin_log` VALUES ('74', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874502');
+INSERT INTO `fa_admin_log` VALUES ('75', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_article_like\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874639');
+INSERT INTO `fa_admin_log` VALUES ('76', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_dynamic\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874641');
+INSERT INTO `fa_admin_log` VALUES ('77', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874643');
+INSERT INTO `fa_admin_log` VALUES ('78', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874643');
+INSERT INTO `fa_admin_log` VALUES ('79', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874643');
+INSERT INTO `fa_admin_log` VALUES ('80', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874643');
+INSERT INTO `fa_admin_log` VALUES ('81', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_activity\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874649');
+INSERT INTO `fa_admin_log` VALUES ('82', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_activity\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874649');
+INSERT INTO `fa_admin_log` VALUES ('83', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874655');
+INSERT INTO `fa_admin_log` VALUES ('84', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874655');
+INSERT INTO `fa_admin_log` VALUES ('85', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874655');
+INSERT INTO `fa_admin_log` VALUES ('86', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874655');
+INSERT INTO `fa_admin_log` VALUES ('87', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_article\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874657');
+INSERT INTO `fa_admin_log` VALUES ('88', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_article\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874657');
+INSERT INTO `fa_admin_log` VALUES ('89', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874663');
+INSERT INTO `fa_admin_log` VALUES ('90', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874663');
+INSERT INTO `fa_admin_log` VALUES ('91', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874663');
+INSERT INTO `fa_admin_log` VALUES ('92', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874663');
+INSERT INTO `fa_admin_log` VALUES ('93', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_comment\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874668');
+INSERT INTO `fa_admin_log` VALUES ('94', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_comment\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874668');
+INSERT INTO `fa_admin_log` VALUES ('95', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874673');
+INSERT INTO `fa_admin_log` VALUES ('96', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874673');
+INSERT INTO `fa_admin_log` VALUES ('97', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874673');
+INSERT INTO `fa_admin_log` VALUES ('98', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874673');
+INSERT INTO `fa_admin_log` VALUES ('99', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_article_like\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874677');
+INSERT INTO `fa_admin_log` VALUES ('100', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_article_like\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874677');
+INSERT INTO `fa_admin_log` VALUES ('101', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874695');
+INSERT INTO `fa_admin_log` VALUES ('102', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874695');
+INSERT INTO `fa_admin_log` VALUES ('103', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874695');
+INSERT INTO `fa_admin_log` VALUES ('104', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874695');
+INSERT INTO `fa_admin_log` VALUES ('105', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_activity_like\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874699');
+INSERT INTO `fa_admin_log` VALUES ('106', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_activity_like\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874699');
+INSERT INTO `fa_admin_log` VALUES ('107', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"1\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_dynamic\",\"controller\":\"app\\/Dynamic\",\"model\":\"\",\"relation\":{\"6\":{\"relation\":\"fa_app_activity\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"activity_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"title\"]},\"7\":{\"relation\":\"fa_app_article\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"article_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"title\"]},\"8\":{\"relation\":\"fa_app_comment\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"comment_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"content\"]},\"9\":{\"relation\":\"fa_app_article_like\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"article_like_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"id\"]},\"10\":{\"relation\":\"fa_app_activity_like\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"activity_like_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"id\"]}},\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874709');
+INSERT INTO `fa_admin_log` VALUES ('108', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"1\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_dynamic\",\"controller\":\"app\\/Dynamic\",\"model\":\"\",\"relation\":{\"6\":{\"relation\":\"fa_app_activity\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"activity_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"title\"]},\"7\":{\"relation\":\"fa_app_article\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"article_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"title\"]},\"8\":{\"relation\":\"fa_app_comment\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"comment_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"content\"]},\"9\":{\"relation\":\"fa_app_article_like\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"article_like_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"id\"]},\"10\":{\"relation\":\"fa_app_activity_like\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"activity_like_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"id\"]}},\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874711');
+INSERT INTO `fa_admin_log` VALUES ('109', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577874711');
+INSERT INTO `fa_admin_log` VALUES ('110', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"1\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577875047');
+INSERT INTO `fa_admin_log` VALUES ('111', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577875050');
+INSERT INTO `fa_admin_log` VALUES ('112', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577875052');
+INSERT INTO `fa_admin_log` VALUES ('113', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/Dynamic.php\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577875053');
+INSERT INTO `fa_admin_log` VALUES ('114', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/Dynamic.php\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577875053');
+INSERT INTO `fa_admin_log` VALUES ('115', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577875053');
+INSERT INTO `fa_admin_log` VALUES ('116', '1', 'admin', '/gWqP6hutKT.php/auth/rule/add?dialog=1', '权限管理 菜单规则 添加', '{\"dialog\":\"1\",\"__token__\":\"b9cfceb608ebc1a12b6463964a569556\",\"row\":{\"ismenu\":\"1\",\"pid\":\"0\",\"name\":\"plan_item\",\"title\":\"\\u8ba1\\u5212\\u5185\\u5bb9\\u9879\",\"icon\":\"fa fa-sliders\",\"weigh\":\"0\",\"condition\":\"\",\"remark\":\"\",\"status\":\"normal\"}}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878062');
+INSERT INTO `fa_admin_log` VALUES ('117', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878063');
+INSERT INTO `fa_admin_log` VALUES ('118', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878084');
+INSERT INTO `fa_admin_log` VALUES ('119', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_plan_data\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878090');
+INSERT INTO `fa_admin_log` VALUES ('120', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"0\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan_data\",\"controller\":\"app\\/PlanData\",\"model\":\"\",\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878138');
+INSERT INTO `fa_admin_log` VALUES ('121', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"0\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan_data\",\"controller\":\"app\\/PlanData\",\"model\":\"\",\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878139');
+INSERT INTO `fa_admin_log` VALUES ('122', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878139');
+INSERT INTO `fa_admin_log` VALUES ('123', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_plan_recipe\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878144');
+INSERT INTO `fa_admin_log` VALUES ('124', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"0\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan_recipe\",\"controller\":\"app\\/PlanRecipe\",\"model\":\"\",\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878153');
+INSERT INTO `fa_admin_log` VALUES ('125', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"0\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan_recipe\",\"controller\":\"app\\/PlanRecipe\",\"model\":\"\",\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878153');
+INSERT INTO `fa_admin_log` VALUES ('126', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878154');
+INSERT INTO `fa_admin_log` VALUES ('127', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_plan_sport\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878156');
+INSERT INTO `fa_admin_log` VALUES ('128', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"0\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan_sport\",\"controller\":\"app\\/PlanSport\",\"model\":\"\",\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878162');
+INSERT INTO `fa_admin_log` VALUES ('129', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"0\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan_sport\",\"controller\":\"app\\/PlanSport\",\"model\":\"\",\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878162');
+INSERT INTO `fa_admin_log` VALUES ('130', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878163');
+INSERT INTO `fa_admin_log` VALUES ('131', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878169');
+INSERT INTO `fa_admin_log` VALUES ('132', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"1\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878170');
+INSERT INTO `fa_admin_log` VALUES ('133', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878171');
+INSERT INTO `fa_admin_log` VALUES ('134', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878174');
+INSERT INTO `fa_admin_log` VALUES ('135', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878174');
+INSERT INTO `fa_admin_log` VALUES ('136', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878174');
+INSERT INTO `fa_admin_log` VALUES ('137', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/PlanData.php,app\\/PlanRecipe.php,app\\/PlanSport.php\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878176');
+INSERT INTO `fa_admin_log` VALUES ('138', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/PlanData.php,app\\/PlanRecipe.php,app\\/PlanSport.php\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878176');
+INSERT INTO `fa_admin_log` VALUES ('139', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577878176');
+INSERT INTO `fa_admin_log` VALUES ('140', '1', 'admin', '/gWqP6hutKT.php/auth/rule/edit/ids/303?dialog=1', '权限管理 菜单规则 编辑', '{\"dialog\":\"1\",\"__token__\":\"8a8498bb905164fb53a24901f3b1cc16\",\"row\":{\"ismenu\":\"1\",\"pid\":\"0\",\"name\":\"plan_item\",\"title\":\"\\u8ba1\\u5212\\u6a21\\u677f\",\"icon\":\"fa fa-sliders\",\"weigh\":\"0\",\"condition\":\"\",\"remark\":\"\",\"status\":\"normal\"},\"ids\":\"303\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883116');
+INSERT INTO `fa_admin_log` VALUES ('141', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883116');
+INSERT INTO `fa_admin_log` VALUES ('142', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883159');
+INSERT INTO `fa_admin_log` VALUES ('143', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_plan\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883165');
+INSERT INTO `fa_admin_log` VALUES ('144', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883170');
+INSERT INTO `fa_admin_log` VALUES ('145', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883170');
+INSERT INTO `fa_admin_log` VALUES ('146', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883170');
+INSERT INTO `fa_admin_log` VALUES ('147', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883170');
+INSERT INTO `fa_admin_log` VALUES ('148', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_user\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883181');
+INSERT INTO `fa_admin_log` VALUES ('149', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_user\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883181');
+INSERT INTO `fa_admin_log` VALUES ('150', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"1\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan\",\"controller\":\"app\\/Plan\",\"model\":\"\",\"relation\":{\"2\":{\"relation\":\"fa_app_user\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"user_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"nickname\",\"avatar\"]}},\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883186');
+INSERT INTO `fa_admin_log` VALUES ('151', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"1\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_plan\",\"controller\":\"app\\/Plan\",\"model\":\"\",\"relation\":{\"2\":{\"relation\":\"fa_app_user\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"user_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"nickname\",\"avatar\"]}},\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883187');
+INSERT INTO `fa_admin_log` VALUES ('152', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883187');
+INSERT INTO `fa_admin_log` VALUES ('153', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"1\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883195');
+INSERT INTO `fa_admin_log` VALUES ('154', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883197');
+INSERT INTO `fa_admin_log` VALUES ('155', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"2\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883199');
+INSERT INTO `fa_admin_log` VALUES ('156', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/Plan.php\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883200');
+INSERT INTO `fa_admin_log` VALUES ('157', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/Plan.php\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883201');
+INSERT INTO `fa_admin_log` VALUES ('158', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883201');
+INSERT INTO `fa_admin_log` VALUES ('159', '1', 'admin', '/gWqP6hutKT.php/auth/rule/edit/ids/304?dialog=1', '权限管理 菜单规则 编辑', '{\"dialog\":\"1\",\"__token__\":\"e444e85355e8ad39b3915ec29b4c5ea9\",\"row\":{\"ismenu\":\"1\",\"pid\":\"303\",\"name\":\"app\\/plan\",\"title\":\"\\u8ba1\\u5212\",\"icon\":\"fa fa-circle-o\",\"weigh\":\"0\",\"condition\":\"\",\"remark\":\"\",\"status\":\"normal\"},\"ids\":\"304\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883219');
+INSERT INTO `fa_admin_log` VALUES ('160', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883220');
 
 -- ----------------------------
 -- Table structure for fa_app_achievement
@@ -155,7 +267,7 @@ CREATE TABLE `fa_app_activity` (
 -- ----------------------------
 -- Records of fa_app_activity
 -- ----------------------------
-INSERT INTO `fa_app_activity` VALUES ('1', '/uploads/20191229/f57ebce8a72b823912904fe76eda0909.png', '活动01', '<p>啦啦啦啦啦，快来参加啊</p>', '1', '0', '1577602260', '1577602260', '2', '1', '0', '1', '1577602321', '1577635194');
+INSERT INTO `fa_app_activity` VALUES ('1', '/uploads/20191229/f57ebce8a72b823912904fe76eda0909.png', '活动01', '<p>啦啦啦啦啦，快来参加啊</p>', '1', '0', '1577602260', '1577602260', '2', '1', '0', '1', '1577602321', '1577876891');
 
 -- ----------------------------
 -- Table structure for fa_app_activity_apply
@@ -187,12 +299,12 @@ CREATE TABLE `fa_app_activity_like` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='活动点赞';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='活动点赞';
 
 -- ----------------------------
 -- Records of fa_app_activity_like
 -- ----------------------------
-INSERT INTO `fa_app_activity_like` VALUES ('3', '1', '6', '0', '1577635194', '1577635194');
+INSERT INTO `fa_app_activity_like` VALUES ('5', '1', '6', '0', '1577876891', '1577876891');
 
 -- ----------------------------
 -- Table structure for fa_app_activity_view
@@ -233,14 +345,15 @@ CREATE TABLE `fa_app_article` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章';
 
 -- ----------------------------
 -- Records of fa_app_article
 -- ----------------------------
-INSERT INTO `fa_app_article` VALUES ('3', '1', '6', '1', '健康秀文章01', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '<div id=\"description\" class=\"J_DetailSection tshop-psm ke-post\">\r\n    \r\n    <div id=\"J_DivItemDesc\" class=\"content\" data-spm-anchor-id=\"2013.1.0.i0.b2e71844bLqqvP\"><p><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01JP77Xq1BzMp8PE5o3_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01EuNabr1BzMp7sVsmJ_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01L6ltJQ1BzMp5YNw8E_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01Aha09p1BzMp1Cl4Vw_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01Xebls81BzMp8PF6Bj_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"730\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01cDFi7G1BzMp9PT3H2_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"828\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01mFwaZp1BzMp7sUTX2_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"725\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01b2bxEp1BzMp8WI8du_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"847\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01JQXZOc1BzMp8PD1Jb_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"787\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01jAs4st1BzMp9t7fVH_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"875\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01zz1RXl1BzMp8WHKjQ_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1069\" data-spm-anchor-id=\"2013.1.0.i2.b2e71844bLqqvP\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01ZkH8XF1BzMp9t7bLy_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"624\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN012q9fwL1BzMp9t6jJF_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1218\" data-spm-anchor-id=\"2013.1.0.i1.b2e71844bLqqvP\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01iuDCo31BzMsd2K74Z_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1039\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01SoPzWL1BzMsbOwymw_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1020\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01a1UBDG1BzMsbLwTVD_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1017\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01e9hvWF1BzMsZT4Iz1_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1019\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01gNg02u1BzMsaEDt7c_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1059\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01VQT1XF1BzMp1Cngcv_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1019\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01nChLmO1BzMsJIn8ai_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1016\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01TesvdJ1BzMr3weysJ_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"511\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01XpJNWW1BzMr3wlDwc_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01RyWcyg1BzMp7HIX5X_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1021\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01ctzn5T1BzMp90c2s0_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1031\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01DS1XoX1BzMp8WIoH2_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1024\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN011098qb1BzMp7HJKze_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1022\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01ew7cRE1BzMp8bxrBy_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1049\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01ools3Y1BzMp9gjeOH_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"748\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01dmpq0b1BzMp8PGRTo_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01sLP1ld1BzMr2mF9jI_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01YMA50u1BzMr5XKl4t_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01Y03uSd1BzMr6AAwRW_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01GYYuiC1BzMp9PTiwb_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"544\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01H9dJqh1BzMp9PV8Fy_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"541\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01zxSNS21BzMp9gmOtK_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"512\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01KVZWDt1BzMp7zpxlP_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"534\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN0197NjHl1BzMp1Co5ex_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"530\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01QjgH7f1BzMp7sX9vB_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"529\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01q3Izyj1BzMp8bySdo_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"529\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01zIMpRz1BzMp90cv0V_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"531\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01TSWjSy1BzMp8WKUHJ_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"539\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01fUVyq91BzMp7mHvJD_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"936\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01KPv4PT1BzMp7HLPwq_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"699\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01uEACCu1BzMp7HKc3a_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"600\"></p></div>\r\n</div>', '0', '-1', '2', '0', '1', '1577610969', '1577622633');
-INSERT INTO `fa_app_article` VALUES ('4', '1', '6', '1', '健康秀文章01', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '<p>啦啦啦啦</p>', '0', '0', '0', '0', '1', '1577611771', '1577611771');
+INSERT INTO `fa_app_article` VALUES ('3', '1', '6', '1', '健康秀文章01', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '<div id=\"description\" class=\"J_DetailSection tshop-psm ke-post\">\r\n    \r\n    <div id=\"J_DivItemDesc\" class=\"content\" data-spm-anchor-id=\"2013.1.0.i0.b2e71844bLqqvP\"><p><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01JP77Xq1BzMp8PE5o3_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01EuNabr1BzMp7sVsmJ_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01L6ltJQ1BzMp5YNw8E_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01Aha09p1BzMp1Cl4Vw_!!2859020016.jpg\" style=\"max-width: 750.0px;\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01Xebls81BzMp8PF6Bj_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"730\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01cDFi7G1BzMp9PT3H2_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"828\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01mFwaZp1BzMp7sUTX2_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"725\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01b2bxEp1BzMp8WI8du_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"847\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01JQXZOc1BzMp8PD1Jb_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"787\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01jAs4st1BzMp9t7fVH_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"875\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01zz1RXl1BzMp8WHKjQ_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1069\" data-spm-anchor-id=\"2013.1.0.i2.b2e71844bLqqvP\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01ZkH8XF1BzMp9t7bLy_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"624\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN012q9fwL1BzMp9t6jJF_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1218\" data-spm-anchor-id=\"2013.1.0.i1.b2e71844bLqqvP\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01iuDCo31BzMsd2K74Z_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1039\"><img align=\"absmiddle\" src=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01SoPzWL1BzMsbOwymw_!!2859020016.jpg\" class=\"\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1020\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01a1UBDG1BzMsbLwTVD_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1017\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01e9hvWF1BzMsZT4Iz1_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1019\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01gNg02u1BzMsaEDt7c_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1059\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01VQT1XF1BzMp1Cngcv_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1019\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01nChLmO1BzMsJIn8ai_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1016\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01TesvdJ1BzMr3weysJ_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"511\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01XpJNWW1BzMr3wlDwc_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01RyWcyg1BzMp7HIX5X_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1021\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01ctzn5T1BzMp90c2s0_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1031\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01DS1XoX1BzMp8WIoH2_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1024\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN011098qb1BzMp7HJKze_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1022\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01ew7cRE1BzMp8bxrBy_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"1049\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01ools3Y1BzMp9gjeOH_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"748\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01dmpq0b1BzMp8PGRTo_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01sLP1ld1BzMr2mF9jI_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01YMA50u1BzMr5XKl4t_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01Y03uSd1BzMr6AAwRW_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"532\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01GYYuiC1BzMp9PTiwb_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"544\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01H9dJqh1BzMp9PV8Fy_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"541\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01zxSNS21BzMp9gmOtK_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"512\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01KVZWDt1BzMp7zpxlP_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"534\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN0197NjHl1BzMp1Co5ex_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"530\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01QjgH7f1BzMp7sX9vB_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"529\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01q3Izyj1BzMp8bySdo_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"529\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i2/2859020016/O1CN01zIMpRz1BzMp90cv0V_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"531\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01TSWjSy1BzMp8WKUHJ_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"539\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i3/2859020016/O1CN01fUVyq91BzMp7mHvJD_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"936\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i1/2859020016/O1CN01KPv4PT1BzMp7HLPwq_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"699\"><img align=\"absmiddle\" src=\"//img.alicdn.com/tps/i4/T10B2IXb4cXXcHmcPq-85-85.gif\" class=\"\" data-ks-lazyload=\"https://img.alicdn.com/imgextra/i4/2859020016/O1CN01uEACCu1BzMp7HKc3a_!!2859020016.jpg\" style=\"max-width: 750.0px;\" width=\"750\" height=\"600\"></p></div>\r\n</div>', '0', '1', '2', '0', '1', '1577610969', '1577876802');
+INSERT INTO `fa_app_article` VALUES ('4', '1', '6', '1', '健康秀文章01', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '<p>啦啦啦啦</p>', '0', '0', '1', '0', '1', '1577611771', '1577877288');
 INSERT INTO `fa_app_article` VALUES ('5', '1', '6', '1', '健康秀文章01', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '<p>啦啦啦啦</p>', '0', '0', '0', '0', '1', '1577612296', '1577612296');
+INSERT INTO `fa_app_article` VALUES ('6', '1', '6', '1', '???????', '???????', '???????', '0', '1', '3', '0', '1', '1577877206', '1577877392');
 
 -- ----------------------------
 -- Table structure for fa_app_article_label
@@ -253,7 +366,7 @@ CREATE TABLE `fa_app_article_label` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章标签关联';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章标签关联';
 
 -- ----------------------------
 -- Records of fa_app_article_label
@@ -264,6 +377,7 @@ INSERT INTO `fa_app_article_label` VALUES ('3', '4', '1', '1577611771', '1577611
 INSERT INTO `fa_app_article_label` VALUES ('4', '4', '2', '1577611771', '1577611771');
 INSERT INTO `fa_app_article_label` VALUES ('5', '5', '1', '1577612296', '1577612296');
 INSERT INTO `fa_app_article_label` VALUES ('6', '5', '2', '1577612296', '1577612296');
+INSERT INTO `fa_app_article_label` VALUES ('7', '6', '1', '1577877206', '1577877206');
 
 -- ----------------------------
 -- Table structure for fa_app_article_like
@@ -277,12 +391,13 @@ CREATE TABLE `fa_app_article_like` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章点赞';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='文章点赞';
 
 -- ----------------------------
 -- Records of fa_app_article_like
 -- ----------------------------
-INSERT INTO `fa_app_article_like` VALUES ('6', '3', '6', '6', '1577622633', '1577622633');
+INSERT INTO `fa_app_article_like` VALUES ('9', '3', '6', '6', '1577876802', '1577876802');
+INSERT INTO `fa_app_article_like` VALUES ('10', '6', '6', '6', '1577877392', '1577877392');
 
 -- ----------------------------
 -- Table structure for fa_app_article_view
@@ -375,13 +490,17 @@ CREATE TABLE `fa_app_comment` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='评论';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='评论';
 
 -- ----------------------------
 -- Records of fa_app_comment
 -- ----------------------------
 INSERT INTO `fa_app_comment` VALUES ('4', '6', '3', '0', '不错啊~', '0', '1', '1577620838', '1577620838');
-INSERT INTO `fa_app_comment` VALUES ('6', '6', '3', '4', '你是水军？？？？？？', '1', '0', '1577620865', '1577723048');
+INSERT INTO `fa_app_comment` VALUES ('6', '6', '3', '4', '你是水军？？？？？？', '1', '0', '1577620865', '1577872933');
+INSERT INTO `fa_app_comment` VALUES ('7', '6', '4', '0', '???????', '0', '0', '1577877288', '1577877288');
+INSERT INTO `fa_app_comment` VALUES ('8', '6', '6', '0', '???????', '0', '0', '1577877324', '1577877324');
+INSERT INTO `fa_app_comment` VALUES ('9', '6', '6', '0', '???????', '0', '0', '1577877325', '1577877325');
+INSERT INTO `fa_app_comment` VALUES ('10', '6', '6', '0', '???????', '0', '0', '1577877326', '1577877326');
 
 -- ----------------------------
 -- Table structure for fa_app_comment_like
@@ -395,12 +514,12 @@ CREATE TABLE `fa_app_comment_like` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='评论点赞';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='评论点赞';
 
 -- ----------------------------
 -- Records of fa_app_comment_like
 -- ----------------------------
-INSERT INTO `fa_app_comment_like` VALUES ('4', '6', '6', '6', '1577723048', '1577723048');
+INSERT INTO `fa_app_comment_like` VALUES ('7', '6', '6', '6', '1577872933', '1577872933');
 
 -- ----------------------------
 -- Table structure for fa_app_dynamic
@@ -408,20 +527,33 @@ INSERT INTO `fa_app_comment_like` VALUES ('4', '6', '6', '6', '1577723048', '157
 DROP TABLE IF EXISTS `fa_app_dynamic`;
 CREATE TABLE `fa_app_dynamic` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `article_type_id` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '类型:0=健康秀,1=达人',
+  `article_column_id` int(11) NOT NULL COMMENT '所属栏目',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
   `article_id` int(11) NOT NULL DEFAULT '0' COMMENT '文章ID',
+  `activity_id` int(11) NOT NULL COMMENT '活动ID',
   `comment_id` int(11) NOT NULL DEFAULT '0' COMMENT '评论ID',
-  `like_id` int(11) NOT NULL DEFAULT '0' COMMENT '点赞ID',
-  `type_id` enum('1','2','3','4') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '动态类型1=发布,2=评论,3=点赞,4=转发',
+  `article_like_id` int(11) NOT NULL DEFAULT '0' COMMENT '文章点赞ID',
+  `activity_like_id` int(11) NOT NULL COMMENT '活动点赞ID',
+  `type_id` enum('1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '动态类型:1=发布文章,2=评论文章,3=点赞文章,4=点赞活动,5=转发文章,6=转发活动',
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '描述',
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='动态';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='动态';
 
 -- ----------------------------
 -- Records of fa_app_dynamic
 -- ----------------------------
+INSERT INTO `fa_app_dynamic` VALUES ('2', '0', '0', '6', '0', '1', '0', '5', '0', '4', '点赞活动', '1577876891', '1577876891');
+INSERT INTO `fa_app_dynamic` VALUES ('3', '0', '0', '6', '0', '1', '0', '0', '0', '6', '转发动态', '1577877002', '1577877002');
+INSERT INTO `fa_app_dynamic` VALUES ('4', '1', '1', '6', '6', '0', '0', '0', '0', '1', '发布文章', '1577877206', '1577877206');
+INSERT INTO `fa_app_dynamic` VALUES ('5', '1', '1', '6', '4', '0', '7', '0', '0', '2', '评论文章', '1577877288', '1577877288');
+INSERT INTO `fa_app_dynamic` VALUES ('6', '1', '1', '6', '6', '0', '8', '0', '0', '2', '评论文章', '1577877324', '1577877324');
+INSERT INTO `fa_app_dynamic` VALUES ('7', '1', '1', '6', '6', '0', '9', '0', '0', '2', '评论文章', '1577877325', '1577877325');
+INSERT INTO `fa_app_dynamic` VALUES ('8', '1', '1', '6', '6', '0', '10', '0', '0', '2', '评论文章', '1577877326', '1577877326');
+INSERT INTO `fa_app_dynamic` VALUES ('9', '1', '1', '6', '6', '0', '0', '10', '0', '3', '点赞文章', '1577877392', '1577877392');
+INSERT INTO `fa_app_dynamic` VALUES ('10', '1', '1', '6', '6', '0', '0', '0', '0', '5', '转发文章', '1577877412', '1577877412');
 
 -- ----------------------------
 -- Table structure for fa_app_label
@@ -489,6 +621,7 @@ CREATE TABLE `fa_app_message` (
 DROP TABLE IF EXISTS `fa_app_plan`;
 CREATE TABLE `fa_app_plan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sn` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL COMMENT '用户',
   `cover_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '封面',
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划名称',
@@ -498,11 +631,12 @@ CREATE TABLE `fa_app_plan` (
   `create_time` int(11) NOT NULL,
   `update_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划';
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划';
 
 -- ----------------------------
 -- Records of fa_app_plan
 -- ----------------------------
+INSERT INTO `fa_app_plan` VALUES ('43', '2020010201055816056', '6', '/uploads/img.png', 'LrhX7PLj44', '14', '0', '1', '1577898358', '1577898358');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_data
@@ -514,6 +648,7 @@ CREATE TABLE `fa_app_plan_data` (
   `name` varchar(30) NOT NULL COMMENT '数据名称',
   `sketch` varchar(30) NOT NULL COMMENT '简述',
   `type_id` enum('0','1') NOT NULL DEFAULT '0' COMMENT '数据类型:0=普通数据,1=血压数据',
+  `start_time` varchar(30) NOT NULL COMMENT '测量时间',
   `sort` int(11) NOT NULL DEFAULT '0',
   `status` enum('0','1') NOT NULL DEFAULT '1' COMMENT '状态:0=隐藏,1=展示',
   `create_time` int(11) NOT NULL,
@@ -524,12 +659,12 @@ CREATE TABLE `fa_app_plan_data` (
 -- ----------------------------
 -- Records of fa_app_plan_data
 -- ----------------------------
-INSERT INTO `fa_app_plan_data` VALUES ('1', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '体重', '体重简述', '0', '0', '1', '1577716040', '1577716040');
-INSERT INTO `fa_app_plan_data` VALUES ('2', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '血压', '血压简述', '1', '0', '1', '1577716050', '1577716050');
-INSERT INTO `fa_app_plan_data` VALUES ('3', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '血糖', '血糖简述', '0', '0', '1', '1577716064', '1577716064');
-INSERT INTO `fa_app_plan_data` VALUES ('4', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '心率', '心率简述', '0', '0', '1', '1577716083', '1577716083');
-INSERT INTO `fa_app_plan_data` VALUES ('5', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '尿酸值', '尿酸值简述', '0', '0', '1', '1577716099', '1577716099');
-INSERT INTO `fa_app_plan_data` VALUES ('6', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '低密度胆固醇', '低密度胆固醇简述', '0', '0', '1', '1577716118', '1577716118');
+INSERT INTO `fa_app_plan_data` VALUES ('1', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '体重', '体重简述', '0', '18:30', '0', '1', '1577716040', '1577716040');
+INSERT INTO `fa_app_plan_data` VALUES ('2', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '血压', '血压简述', '1', '18:45', '0', '1', '1577716050', '1577716050');
+INSERT INTO `fa_app_plan_data` VALUES ('3', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '血糖', '血糖简述', '0', '18:45', '0', '1', '1577716064', '1577716064');
+INSERT INTO `fa_app_plan_data` VALUES ('4', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '心率', '心率简述', '0', '19:00', '0', '1', '1577716083', '1577716083');
+INSERT INTO `fa_app_plan_data` VALUES ('5', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '尿酸值', '尿酸值简述', '0', '19:00', '0', '1', '1577716099', '1577716099');
+INSERT INTO `fa_app_plan_data` VALUES ('6', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '低密度胆固醇', '低密度胆固醇简述', '0', '20:00', '0', '1', '1577716118', '1577716118');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_base
@@ -539,18 +674,24 @@ CREATE TABLE `fa_app_plan_event_base` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
-  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `date` int(11) NOT NULL COMMENT '计划日期',
+  `format_date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
   `wake_up_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '起床时间',
   `fall_asleep_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '入睡时间',
   `lunch_break_start` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '午睡开始时间',
   `lunch_break_end` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '午睡结束时间',
+  `format_fall_asleep_time` int(11) NOT NULL COMMENT '入睡时间',
+  `format_lunch_break_start` int(11) NOT NULL COMMENT '午睡开始时间',
+  `format_lunch_break_end` int(11) NOT NULL COMMENT '午睡结束时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划基础事件';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划基础事件';
 
 -- ----------------------------
 -- Records of fa_app_plan_event_base
 -- ----------------------------
+INSERT INTO `fa_app_plan_event_base` VALUES ('15', '6', '43', '1578412800', '2020-01-08', '3', '07:30', '11:30', '13:00', '13:30', '1578454200', '1578459600', '1578461400');
+INSERT INTO `fa_app_plan_event_base` VALUES ('16', '6', '43', '1579017600', '2020-01-15', '3', '07:30', '11:30', '13:00', '13:30', '1579059000', '1579064400', '1579066200');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_data
@@ -560,16 +701,27 @@ CREATE TABLE `fa_app_plan_event_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
-  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `date` int(11) NOT NULL COMMENT '计划日期',
+  `format_date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
   `data_id` int(11) NOT NULL,
   `data_type_id` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '数据类型:0=普通数据,1=血压数据',
+  `start_time` int(11) NOT NULL,
+  `format_start_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划数据事件';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划数据事件';
 
 -- ----------------------------
 -- Records of fa_app_plan_event_data
 -- ----------------------------
+INSERT INTO `fa_app_plan_event_data` VALUES ('25', '6', '43', '1578412800', '2020-01-08', '3', '1', '0', '18', '1578479400');
+INSERT INTO `fa_app_plan_event_data` VALUES ('26', '6', '43', '1578412800', '2020-01-08', '3', '2', '1', '18', '1578480300');
+INSERT INTO `fa_app_plan_event_data` VALUES ('27', '6', '43', '1578412800', '2020-01-08', '3', '4', '0', '19', '1578481200');
+INSERT INTO `fa_app_plan_event_data` VALUES ('28', '6', '43', '1578412800', '2020-01-08', '3', '6', '0', '20', '1578484800');
+INSERT INTO `fa_app_plan_event_data` VALUES ('29', '6', '43', '1579017600', '2020-01-15', '3', '1', '0', '18', '1579084200');
+INSERT INTO `fa_app_plan_event_data` VALUES ('30', '6', '43', '1579017600', '2020-01-15', '3', '2', '1', '18', '1579085100');
+INSERT INTO `fa_app_plan_event_data` VALUES ('31', '6', '43', '1579017600', '2020-01-15', '3', '4', '0', '19', '1579086000');
+INSERT INTO `fa_app_plan_event_data` VALUES ('32', '6', '43', '1579017600', '2020-01-15', '3', '6', '0', '20', '1579089600');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_data_list
@@ -597,16 +749,22 @@ CREATE TABLE `fa_app_plan_event_recipe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
-  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `date` int(11) NOT NULL COMMENT '计划日期',
+  `format_date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
   `set_notice_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '提醒时间',
+  `format_set_notice_time` int(11) NOT NULL,
   `recipe_id` int(11) NOT NULL COMMENT '食谱ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划食谱事件';
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划食谱事件';
 
 -- ----------------------------
 -- Records of fa_app_plan_event_recipe
 -- ----------------------------
+INSERT INTO `fa_app_plan_event_recipe` VALUES ('112', '6', '43', '1578412800', '2020-01-08', '3', '08:00', '1578441600', '1');
+INSERT INTO `fa_app_plan_event_recipe` VALUES ('113', '6', '43', '1578412800', '2020-01-08', '3', '09:50', '1578448200', '2');
+INSERT INTO `fa_app_plan_event_recipe` VALUES ('114', '6', '43', '1579017600', '2020-01-15', '3', '08:00', '1579046400', '1');
+INSERT INTO `fa_app_plan_event_recipe` VALUES ('115', '6', '43', '1579017600', '2020-01-15', '3', '09:50', '1579053000', '2');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_recipe_list
@@ -620,11 +778,27 @@ CREATE TABLE `fa_app_plan_event_recipe_list` (
   `group_sort` int(11) NOT NULL COMMENT '组排序',
   `article_sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='食谱所含商品';
+) ENGINE=InnoDB AUTO_INCREMENT=599 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='食谱所含商品';
 
 -- ----------------------------
 -- Records of fa_app_plan_event_recipe_list
 -- ----------------------------
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('583', '0', '112', '1', '1', '1');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('584', '0', '112', '2', '1', '2');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('585', '0', '112', '3', '1', '3');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('586', '1', '112', '8', '2', '1');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('587', '1', '112', '11', '2', '2');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('588', '0', '113', '1', '1', '1');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('589', '0', '113', '3', '1', '2');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('590', '1', '113', '6', '2', '1');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('591', '0', '114', '1', '1', '1');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('592', '0', '114', '2', '1', '2');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('593', '0', '114', '3', '1', '3');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('594', '1', '114', '8', '2', '1');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('595', '1', '114', '11', '2', '2');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('596', '0', '115', '1', '1', '1');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('597', '0', '115', '3', '1', '2');
+INSERT INTO `fa_app_plan_event_recipe_list` VALUES ('598', '1', '115', '6', '2', '1');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_sport
@@ -634,16 +808,26 @@ CREATE TABLE `fa_app_plan_event_sport` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
-  `date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '计划日期',
+  `date` int(11) NOT NULL COMMENT '计划日期',
+  `format_date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
   `sport_id` int(11) NOT NULL,
   `sport_type_id` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '运动类型:0=普通,1=健康操',
+  `start_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '开始时间',
+  `end_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '结束时间',
+  `format_start_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '开始时间',
+  `format_end_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '结束时间',
+  `target_step` int(11) NOT NULL COMMENT '目标步数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划运动事件';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划运动事件';
 
 -- ----------------------------
 -- Records of fa_app_plan_event_sport
 -- ----------------------------
+INSERT INTO `fa_app_plan_event_sport` VALUES ('17', '6', '43', '1578412800', '2020-01-08', '3', '1', '0', '08:00', '08:00', '1578441600', '1578441600', '8');
+INSERT INTO `fa_app_plan_event_sport` VALUES ('18', '6', '43', '1578412800', '2020-01-08', '3', '2', '1', '08:00', '08:00', '1578441600', '1578441600', '0');
+INSERT INTO `fa_app_plan_event_sport` VALUES ('19', '6', '43', '1579017600', '2020-01-15', '3', '1', '0', '08:00', '08:00', '1579046400', '1579046400', '8');
+INSERT INTO `fa_app_plan_event_sport` VALUES ('20', '6', '43', '1579017600', '2020-01-15', '3', '2', '1', '08:00', '08:00', '1579046400', '1579046400', '0');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_sport_list
@@ -656,15 +840,38 @@ CREATE TABLE `fa_app_plan_event_sport_list` (
   `article_id` int(11) NOT NULL,
   `group_sort` int(11) NOT NULL COMMENT '组排序',
   `article_sort` int(11) NOT NULL,
-  `start_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '开始时间',
-  `end_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '结束时间',
-  `target_step` int(11) NOT NULL COMMENT '目标步数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划运动数据';
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划运动数据';
 
 -- ----------------------------
 -- Records of fa_app_plan_event_sport_list
 -- ----------------------------
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('41', '0', '18', '1', '1', '1');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('42', '0', '18', '2', '1', '2');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('43', '0', '18', '3', '1', '3');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('44', '1', '18', '8', '2', '1');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('45', '1', '18', '11', '2', '2');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('46', '0', '20', '1', '1', '1');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('47', '0', '20', '2', '1', '2');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('48', '0', '20', '3', '1', '3');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('49', '1', '20', '8', '2', '1');
+INSERT INTO `fa_app_plan_event_sport_list` VALUES ('50', '1', '20', '11', '2', '2');
+
+-- ----------------------------
+-- Table structure for fa_app_plan_form_data
+-- ----------------------------
+DROP TABLE IF EXISTS `fa_app_plan_form_data`;
+CREATE TABLE `fa_app_plan_form_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `form_data` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='创建计划时的原始传入参数';
+
+-- ----------------------------
+-- Records of fa_app_plan_form_data
+-- ----------------------------
+INSERT INTO `fa_app_plan_form_data` VALUES ('6', '43', '{\"plan_name\":\"LrhX7PLj44\",\"plan_cover_image\":\"\\/uploads\\/img.png\",\"number_of_days\":\"14\",\"setting\":{\"3\":{\"base\":{\"wake_up_time\":\"07:30\",\"fall_asleep_time\":\"11:30\",\"lunch_break_start\":\"13:00\",\"lunch_break_end\":\"13:30\"},\"recipe\":{\"1\":{\"set_notice_time\":\"08:00\",\"article_list\":[[\"1\",\"2\",\"3\"],[\"8\",\"11\"]]},\"2\":{\"set_notice_time\":\"09:50\",\"article_list\":[[\"1\",\"3\"],[\"6\"]]}},\"sport\":{\"1\":{\"sport_type_id\":\"0\",\"start_time\":\"08:00\",\"end_time\":\"08:00\",\"target_step\":\"08:00\"},\"2\":{\"sport_type_id\":\"1\",\"start_time\":\"08:00\",\"end_time\":\"08:00\",\"article_list\":[[\"1\",\"2\",\"3\"],[\"8\",\"11\"]]}},\"info\":[1,2,4,6]}}}');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_recipe
@@ -945,7 +1152,7 @@ CREATE TABLE `fa_auth_rule` (
   UNIQUE KEY `name` (`name`) USING BTREE,
   KEY `pid` (`pid`),
   KEY `weigh` (`weigh`)
-) ENGINE=InnoDB AUTO_INCREMENT=297 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='节点表';
+) ENGINE=InnoDB AUTO_INCREMENT=310 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='节点表';
 
 -- ----------------------------
 -- Records of fa_auth_rule
@@ -1193,24 +1400,37 @@ INSERT INTO `fa_auth_rule` VALUES ('275', 'file', '272', 'app/activity_view/edit
 INSERT INTO `fa_auth_rule` VALUES ('276', 'file', '272', 'app/activity_view/del', '删除', 'fa fa-circle-o', '', '', '0', '1577633601', '1577633601', '0', 'normal');
 INSERT INTO `fa_auth_rule` VALUES ('277', 'file', '272', 'app/activity_view/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577633601', '1577633601', '0', 'normal');
 INSERT INTO `fa_auth_rule` VALUES ('278', 'file', '284', 'app/plan_data', '数据类型', 'fa fa-circle-o', '', '', '1', '1577715859', '1577715937', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('279', 'file', '278', 'app/plan_data/index', '查看', 'fa fa-circle-o', '', '', '0', '1577715859', '1577715859', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('280', 'file', '278', 'app/plan_data/add', '添加', 'fa fa-circle-o', '', '', '0', '1577715859', '1577715859', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('281', 'file', '278', 'app/plan_data/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577715859', '1577715859', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('282', 'file', '278', 'app/plan_data/del', '删除', 'fa fa-circle-o', '', '', '0', '1577715859', '1577715859', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('283', 'file', '278', 'app/plan_data/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577715859', '1577715859', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('279', 'file', '278', 'app/plan_data/index', '查看', 'fa fa-circle-o', '', '', '0', '1577715859', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('280', 'file', '278', 'app/plan_data/add', '添加', 'fa fa-circle-o', '', '', '0', '1577715859', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('281', 'file', '278', 'app/plan_data/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577715859', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('282', 'file', '278', 'app/plan_data/del', '删除', 'fa fa-circle-o', '', '', '0', '1577715859', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('283', 'file', '278', 'app/plan_data/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577715859', '1577878176', '0', 'normal');
 INSERT INTO `fa_auth_rule` VALUES ('284', 'file', '0', 'plan', '计划中心', 'fa fa-glide', '', '', '1', '1577715920', '1577715920', '0', 'normal');
 INSERT INTO `fa_auth_rule` VALUES ('285', 'file', '284', 'app/plan_recipe', '食谱类型', 'fa fa-circle-o', '', '', '1', '1577717333', '1577717347', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('286', 'file', '285', 'app/plan_recipe/index', '查看', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('287', 'file', '285', 'app/plan_recipe/add', '添加', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('288', 'file', '285', 'app/plan_recipe/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('289', 'file', '285', 'app/plan_recipe/del', '删除', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('290', 'file', '285', 'app/plan_recipe/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('286', 'file', '285', 'app/plan_recipe/index', '查看', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('287', 'file', '285', 'app/plan_recipe/add', '添加', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('288', 'file', '285', 'app/plan_recipe/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('289', 'file', '285', 'app/plan_recipe/del', '删除', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('290', 'file', '285', 'app/plan_recipe/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
 INSERT INTO `fa_auth_rule` VALUES ('291', 'file', '284', 'app/plan_sport', '运动类型', 'fa fa-circle-o', '', '', '1', '1577717333', '1577717358', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('292', 'file', '291', 'app/plan_sport/index', '查看', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('293', 'file', '291', 'app/plan_sport/add', '添加', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('294', 'file', '291', 'app/plan_sport/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('295', 'file', '291', 'app/plan_sport/del', '删除', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
-INSERT INTO `fa_auth_rule` VALUES ('296', 'file', '291', 'app/plan_sport/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577717333', '1577717333', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('292', 'file', '291', 'app/plan_sport/index', '查看', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('293', 'file', '291', 'app/plan_sport/add', '添加', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('294', 'file', '291', 'app/plan_sport/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('295', 'file', '291', 'app/plan_sport/del', '删除', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('296', 'file', '291', 'app/plan_sport/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577717333', '1577878176', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('297', 'file', '171', 'app/dynamic', '动态', 'fa fa-circle-o', '', '', '1', '1577875053', '1577875053', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('298', 'file', '297', 'app/dynamic/index', '查看', 'fa fa-circle-o', '', '', '0', '1577875053', '1577875053', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('299', 'file', '297', 'app/dynamic/add', '添加', 'fa fa-circle-o', '', '', '0', '1577875053', '1577875053', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('300', 'file', '297', 'app/dynamic/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577875053', '1577875053', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('301', 'file', '297', 'app/dynamic/del', '删除', 'fa fa-circle-o', '', '', '0', '1577875053', '1577875053', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('302', 'file', '297', 'app/dynamic/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577875053', '1577875053', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('303', 'file', '0', 'plan_item', '计划模板', 'fa fa-sliders', '', '', '1', '1577878062', '1577883116', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('304', 'file', '303', 'app/plan', '计划', 'fa fa-circle-o', '', '', '1', '1577883201', '1577883219', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('305', 'file', '304', 'app/plan/index', '查看', 'fa fa-circle-o', '', '', '0', '1577883201', '1577883201', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('306', 'file', '304', 'app/plan/add', '添加', 'fa fa-circle-o', '', '', '0', '1577883201', '1577883201', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('307', 'file', '304', 'app/plan/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1577883201', '1577883201', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('308', 'file', '304', 'app/plan/del', '删除', 'fa fa-circle-o', '', '', '0', '1577883201', '1577883201', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('309', 'file', '304', 'app/plan/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1577883201', '1577883201', '0', 'normal');
 
 -- ----------------------------
 -- Table structure for fa_calendar
@@ -1329,7 +1549,7 @@ CREATE TABLE `fa_command` (
   `updatetime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   `status` enum('successed','failured') NOT NULL DEFAULT 'failured' COMMENT '状态',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='在线命令表';
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='在线命令表';
 
 -- ----------------------------
 -- Records of fa_command
@@ -1374,6 +1594,14 @@ INSERT INTO `fa_command` VALUES ('37', 'menu', '[\"--controller=app\\/ActivityVi
 INSERT INTO `fa_command` VALUES ('38', 'crud', '[\"--table=fa_app_plan_data\",\"--controller=app\\/PlanData\"]', 'php think crud --table=fa_app_plan_data --controller=app/PlanData', 'Build Successed', '1577715849', '1577715849', '1577715849', 'successed');
 INSERT INTO `fa_command` VALUES ('39', 'menu', '[\"--controller=app\\/PlanData\"]', 'php think menu --controller=app/PlanData', 'Build Successed!', '1577715859', '1577715859', '1577715859', 'successed');
 INSERT INTO `fa_command` VALUES ('40', 'menu', '[\"--controller=app\\/PlanRecipe\",\"--controller=app\\/PlanSport\"]', 'php think menu --controller=app/PlanRecipe --controller=app/PlanSport', 'Build Successed!', '1577717333', '1577717333', '1577717333', 'successed');
+INSERT INTO `fa_command` VALUES ('41', 'crud', '[\"--table=fa_app_dynamic\",\"--controller=app\\/Dynamic\",\"--relation=fa_app_activity\",\"--relationmode=belongsto\",\"--relationforeignkey=activity_id\",\"--relationprimarykey=id\",\"--relationfields=title\",\"--relation=fa_app_article\",\"--relationmode=belongsto\",\"--relationforeignkey=article_id\",\"--relationprimarykey=id\",\"--relationfields=title\",\"--relation=fa_app_comment\",\"--relationmode=belongsto\",\"--relationforeignkey=comment_id\",\"--relationprimarykey=id\",\"--relationfields=content\",\"--relation=fa_app_article_like\",\"--relationmode=belongsto\",\"--relationforeignkey=article_like_id\",\"--relationprimarykey=id\",\"--relationfields=id\",\"--relation=fa_app_activity_like\",\"--relationmode=belongsto\",\"--relationforeignkey=activity_like_id\",\"--relationprimarykey=id\",\"--relationfields=id\"]', 'php think crud --table=fa_app_dynamic --controller=app/Dynamic --relation=fa_app_activity --relationmode=belongsto --relationforeignkey=activity_id --relationprimarykey=id --relationfields=title --relation=fa_app_article --relationmode=belongsto --relationforeignkey=article_id --relationprimarykey=id --relationfields=title --relation=fa_app_comment --relationmode=belongsto --relationforeignkey=comment_id --relationprimarykey=id --relationfields=content --relation=fa_app_article_like --relationmode=belongsto --relationforeignkey=article_like_id --relationprimarykey=id --relationfields=id --relation=fa_app_activity_like --relationmode=belongsto --relationforeignkey=activity_like_id --relationprimarykey=id --relationfields=id', 'Build Successed', '1577874711', '1577874711', '1577874711', 'successed');
+INSERT INTO `fa_command` VALUES ('42', 'menu', '[\"--controller=app\\/Dynamic\"]', 'php think menu --controller=app/Dynamic', 'Build Successed!', '1577875053', '1577875053', '1577875053', 'successed');
+INSERT INTO `fa_command` VALUES ('43', 'crud', '[\"--table=fa_app_plan_data\",\"--controller=app\\/PlanData\"]', 'php think crud --table=fa_app_plan_data --controller=app/PlanData', 'controller already exists!\nIf you need to rebuild again, use the parameter --force=true', '1577878139', '1577878139', '1577878139', 'failured');
+INSERT INTO `fa_command` VALUES ('44', 'crud', '[\"--table=fa_app_plan_recipe\",\"--controller=app\\/PlanRecipe\"]', 'php think crud --table=fa_app_plan_recipe --controller=app/PlanRecipe', 'controller already exists!\nIf you need to rebuild again, use the parameter --force=true', '1577878153', '1577878153', '1577878153', 'failured');
+INSERT INTO `fa_command` VALUES ('45', 'crud', '[\"--table=fa_app_plan_sport\",\"--controller=app\\/PlanSport\"]', 'php think crud --table=fa_app_plan_sport --controller=app/PlanSport', 'controller already exists!\nIf you need to rebuild again, use the parameter --force=true', '1577878162', '1577878162', '1577878162', 'failured');
+INSERT INTO `fa_command` VALUES ('46', 'menu', '[\"--controller=app\\/PlanData\",\"--controller=app\\/PlanRecipe\",\"--controller=app\\/PlanSport\"]', 'php think menu --controller=app/PlanData --controller=app/PlanRecipe --controller=app/PlanSport', 'Build Successed!', '1577878176', '1577878176', '1577878176', 'successed');
+INSERT INTO `fa_command` VALUES ('47', 'crud', '[\"--table=fa_app_plan\",\"--controller=app\\/Plan\",\"--relation=fa_app_user\",\"--relationmode=belongsto\",\"--relationforeignkey=user_id\",\"--relationprimarykey=id\",\"--relationfields=nickname,avatar\"]', 'php think crud --table=fa_app_plan --controller=app/Plan --relation=fa_app_user --relationmode=belongsto --relationforeignkey=user_id --relationprimarykey=id --relationfields=nickname,avatar', 'Build Successed', '1577883187', '1577883187', '1577883187', 'successed');
+INSERT INTO `fa_command` VALUES ('48', 'menu', '[\"--controller=app\\/Plan\"]', 'php think menu --controller=app/Plan', 'Build Successed!', '1577883201', '1577883201', '1577883201', 'successed');
 
 -- ----------------------------
 -- Table structure for fa_config
