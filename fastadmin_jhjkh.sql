@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2020-01-02 01:08:11
+Date: 2020-01-03 00:14:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,7 +41,7 @@ CREATE TABLE `fa_admin` (
 -- ----------------------------
 -- Records of fa_admin
 -- ----------------------------
-INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20191229/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1577872340', '127.0.0.1', '1492186163', '1577872340', 'ae30d5f5-75cf-49ac-849e-6168ac897206', 'normal');
+INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20200102/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1577977489', '127.0.0.1', '1492186163', '1577977574', '1808a3e3-52c0-4fb8-b05e-84b1ab3e5471', 'normal');
 
 -- ----------------------------
 -- Table structure for fa_admin_log
@@ -59,7 +59,7 @@ CREATE TABLE `fa_admin_log` (
   `createtime` int(10) DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`id`),
   KEY `name` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
 
 -- ----------------------------
 -- Records of fa_admin_log
@@ -224,6 +224,21 @@ INSERT INTO `fa_admin_log` VALUES ('157', '1', 'admin', '/gWqP6hutKT.php/command
 INSERT INTO `fa_admin_log` VALUES ('158', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883201');
 INSERT INTO `fa_admin_log` VALUES ('159', '1', 'admin', '/gWqP6hutKT.php/auth/rule/edit/ids/304?dialog=1', '权限管理 菜单规则 编辑', '{\"dialog\":\"1\",\"__token__\":\"e444e85355e8ad39b3915ec29b4c5ea9\",\"row\":{\"ismenu\":\"1\",\"pid\":\"303\",\"name\":\"app\\/plan\",\"title\":\"\\u8ba1\\u5212\",\"icon\":\"fa fa-circle-o\",\"weigh\":\"0\",\"condition\":\"\",\"remark\":\"\",\"status\":\"normal\"},\"ids\":\"304\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883219');
 INSERT INTO `fa_admin_log` VALUES ('160', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577883220');
+INSERT INTO `fa_admin_log` VALUES ('161', '1', 'admin', '/gWqP6hutKT.php/index/login?url=%2FgWqP6hutKT.php', '登录', '{\"url\":\"\\/gWqP6hutKT.php\",\"__token__\":\"f426faa0446a30fce4fa5318c3b6bb70\",\"username\":\"admin\",\"captcha\":\"xuyp\",\"keeplogin\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577976869');
+INSERT INTO `fa_admin_log` VALUES ('162', '1', 'admin', '/gWqP6hutKT.php/addon/config?name=alioss&dialog=1', '插件管理 配置', '{\"name\":\"alioss\",\"dialog\":\"1\",\"row\":{\"app_id\":\"LTAI4FkmnxiS1HzMWckQdHwi\",\"app_key\":\"K1BmtlPXIHLdN9rNoUpAqMPYCebQpS\",\"bucket\":\"jiahejiankanghui\",\"endpoint\":\"oss-cn-beijing.aliyuncs.com\",\"cdnurl\":\"http:\\/\\/jiahejiankanghui.oss-cn-beijing.aliyuncs.com\",\"uploadmode\":\"client\",\"savekey\":\"\\/uploads\\/{year}{mon}{day}\\/{filemd5}{.suffix}\",\"expire\":\"600\",\"maxsize\":\"10M\",\"mimetype\":\"*\",\"multiple\":\"0\",\"syncdelete\":\"0\"}}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977185');
+INSERT INTO `fa_admin_log` VALUES ('163', '1', 'admin', '/gWqP6hutKT.php/general/attachment/del/ids/9,8,7,5,4,3', '常规管理 附件管理 删除', '{\"action\":\"del\",\"ids\":\"9,8,7,5,4,3\",\"params\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977370');
+INSERT INTO `fa_admin_log` VALUES ('164', '1', 'admin', '/gWqP6hutKT.php/index/login', '登录', '{\"__token__\":\"952944de657ff1d129f6b00551c2ed3d\",\"username\":\"admin\",\"captcha\":\"yiy4\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977489');
+INSERT INTO `fa_admin_log` VALUES ('165', '1', 'admin', '/gWqP6hutKT.php/general.profile/update', '常规管理 个人资料 更新个人信息', '{\"__token__\":\"94678de946d5d29134a73310d0537dee\",\"row\":{\"avatar\":\"\\/uploads\\/20200102\\/26f5e51b8ac7fbd6f1c649cc45a18265.png\",\"email\":\"admin@admin.com\",\"nickname\":\"Admin\",\"password\":\"\"}}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977560');
+INSERT INTO `fa_admin_log` VALUES ('166', '1', 'admin', '/gWqP6hutKT.php/general.profile/update', '常规管理 个人资料 更新个人信息', '{\"__token__\":\"5fbbd4dba16894b9948a899cfceaee14\",\"row\":{\"avatar\":\"\\/uploads\\/20200102\\/f57ebce8a72b823912904fe76eda0909.png\",\"email\":\"admin@admin.com\",\"nickname\":\"Admin\",\"password\":\"\"}}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977574');
+INSERT INTO `fa_admin_log` VALUES ('167', '1', 'admin', '/gWqP6hutKT.php/auth/group/roletree', '权限管理 角色组', '{\"id\":\"2\",\"pid\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977583');
+INSERT INTO `fa_admin_log` VALUES ('168', '1', 'admin', '/gWqP6hutKT.php/auth/group/roletree', '权限管理 角色组', '{\"id\":\"2\",\"pid\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977590');
+INSERT INTO `fa_admin_log` VALUES ('169', '1', 'admin', '/gWqP6hutKT.php/auth/group/roletree', '权限管理 角色组', '{\"id\":\"2\",\"pid\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977638');
+INSERT INTO `fa_admin_log` VALUES ('170', '1', 'admin', '/gWqP6hutKT.php/addon/state', '插件管理 禁用启用', '{\"name\":\"alioss\",\"action\":\"disable\",\"force\":\"0\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977650');
+INSERT INTO `fa_admin_log` VALUES ('171', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977650');
+INSERT INTO `fa_admin_log` VALUES ('172', '1', 'admin', '/gWqP6hutKT.php/auth/group/roletree', '权限管理 角色组', '{\"id\":\"2\",\"pid\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977657');
+INSERT INTO `fa_admin_log` VALUES ('173', '1', 'admin', '/gWqP6hutKT.php/auth/group/roletree', '权限管理 角色组', '{\"id\":\"2\",\"pid\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977663');
+INSERT INTO `fa_admin_log` VALUES ('174', '1', 'admin', '/gWqP6hutKT.php/addon/state', '插件管理 禁用启用', '{\"name\":\"alioss\",\"action\":\"enable\",\"force\":\"0\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577978090');
+INSERT INTO `fa_admin_log` VALUES ('175', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577978091');
 
 -- ----------------------------
 -- Table structure for fa_app_achievement
@@ -1077,17 +1092,14 @@ CREATE TABLE `fa_attachment` (
   `storage` varchar(100) NOT NULL DEFAULT 'local' COMMENT '存储位置',
   `sha1` varchar(40) NOT NULL DEFAULT '' COMMENT '文件 sha1编码',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='附件表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='附件表';
 
 -- ----------------------------
 -- Records of fa_attachment
 -- ----------------------------
 INSERT INTO `fa_attachment` VALUES ('1', '1', '0', '/assets/img/qrcode.png', '150', '150', 'png', '0', '21859', 'image/png', '', '1499681848', '1499681848', '1499681848', 'local', '17163603d0263e4838b9387ff2cd4877e8b018f6');
-INSERT INTO `fa_attachment` VALUES ('3', '1', '0', '/uploads/20191222/ec0165e2ebb97e07c1ba7601b47cb47d.xlsx', '', '', 'xlsx', '0', '121176', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '{\"name\":\"\\u8ba2\\u5355 2019-12-22.xlsx\"}', '1577022514', '1577022514', '1577022514', 'local', '2e3a563210ced137b0a9592575284d6c8cf53b79');
-INSERT INTO `fa_attachment` VALUES ('4', '1', '0', '/uploads/20191229/f57ebce8a72b823912904fe76eda0909.png', '192', '192', 'png', '0', '15135', 'image/png', '{\"name\":\"avatar.png\"}', '1577599492', '1577599492', '1577599492', 'local', '9c39ed36543710c1ce4de7e0e56391c37ae58d56');
-INSERT INTO `fa_attachment` VALUES ('5', '1', '0', '/uploads/20191229/0e6e125347dd00583f8e0a15845522e4.jpg', '0', '0', 'jpg', '0', '70837', 'image/jpeg', '', '1577600903', '1577600903', '1577600903', 'alioss', '0e6e125347dd00583f8e0a15845522e4');
-INSERT INTO `fa_attachment` VALUES ('7', '1', '0', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '0', 'png', '0', '21859', 'image/png', '', '1577603460', '1577603460', '1577603460', 'alioss', '26f5e51b8ac7fbd6f1c649cc45a18265');
-INSERT INTO `fa_attachment` VALUES ('8', '1', '0', '/uploads/20191229/12bd95fb7d8a1a6119b3ca45fe76a278.png', '0', '0', 'png', '0', '8740', 'image/png', '', '1577603493', '1577603493', '1577603493', 'alioss', '12bd95fb7d8a1a6119b3ca45fe76a278');
+INSERT INTO `fa_attachment` VALUES ('10', '1', '0', '/uploads/20200102/f57ebce8a72b823912904fe76eda0909.png', '0', '0', 'png', '0', '15135', 'image/png', '', '1577977387', '1577977387', '1577977387', 'alioss', 'f57ebce8a72b823912904fe76eda0909');
+INSERT INTO `fa_attachment` VALUES ('11', '1', '0', '/uploads/20200102/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '0', 'png', '0', '21859', 'image/png', '', '1577977556', '1577977556', '1577977556', 'alioss', '26f5e51b8ac7fbd6f1c649cc45a18265');
 
 -- ----------------------------
 -- Table structure for fa_auth_group

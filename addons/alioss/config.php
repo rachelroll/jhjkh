@@ -39,7 +39,7 @@ return array (
     'content' => 
     array (
     ),
-    'value' => 'jiahetuancan',
+    'value' => 'jiahejiankanghui',
     'rule' => 'required',
     'msg' => '',
     'tip' => '阿里云OSS的空间名',
@@ -69,7 +69,7 @@ return array (
     'content' => 
     array (
     ),
-    'value' => 'http://jiahetuancan.oss-cn-beijing.aliyuncs.com',
+    'value' => 'http://jiahejiankanghui.oss-cn-beijing.aliyuncs.com',
     'rule' => 'required',
     'msg' => '',
     'tip' => '请填写CDN地址，必须以http://开头',
