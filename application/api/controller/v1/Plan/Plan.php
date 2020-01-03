@@ -3,6 +3,8 @@
 namespace app\api\controller\v1\plan;
 
 
+use app\admin\model\app\PlanData;
+use app\admin\model\app\PlanSport;
 use app\api\controller\Api;
 use app\admin\model\app\PlanData as PlanDataModel;
 use app\admin\model\app\Plan as PlanModel;
@@ -14,6 +16,8 @@ use app\admin\model\app\PlanEventSportList as PlanEventSportListModel;
 use app\admin\model\app\PlanEventData as PlanEventDataModel;
 use app\admin\model\app\PlanEventDataList as PlanEventDataListModel;
 
+use app\admin\model\app\PlanRecipe as PlanRecipeModel;
+use app\admin\model\app\Article as ArticleModel;
 use app\admin\model\app\PlanFormData as PlanFormDataModel;
 use think\Db;
 use think\Exception;
@@ -176,5 +180,107 @@ class Plan extends Api
             ]);
         }
         return $formatData;
+    }
+
+    /**
+     * 计划详情展示
+     */
+    public function fetch_detail()
+    {
+        $this->checkParam([
+            'plan_id' => 'require',
+            'day_of_the_week' => 'require',
+        ]);
+        //todo 计划基础数据
+        $planEventBaseModel = new PlanEventBaseModel;
+        //todo 计划食谱
+        $planRecipeModel = new PlanRecipeModel;
+        $planEventRecipeModel = new PlanEventRecipeModel;
+        $planEventRecipeListModel = new PlanEventRecipeListModel;
+        //todo 计划运动
+        $planEventSportModel = new PlanEventSportModel;
+        $planEventSportListModel = new PlanEventSportListModel;
+        //todo 创建数据类型
+        $planEventDataModel = new PlanEventDataModel;
+
+        $condition = [
+            'plan_id' => $this->clientInfo['plan_id'],
+            'day_of_the_week' => $this->clientInfo['day_of_the_week'],
+        ];
+        //基础事件
+        $planEventBaseData = $planEventBaseModel->where($condition)->limit(1)->find();
+
+        $baseEventData = [
+            'wake_up_time' => $planEventBaseData['wake_up_time'],
+            'fall_asleep_time' => $planEventBaseData['fall_asleep_time'],
+            'lunch_break_start' => $planEventBaseData['lunch_break_start'],
+            'lunch_break_end' => $planEventBaseData['lunch_break_end'],
+        ];
+        $condition['date'] = $planEventBaseData['date'];
+        //全部的食谱分类
+        $planRecipeData = $planRecipeModel->where([])->order(['sort' => 'desc', 'id' => 'asc'])->select();
+        $recipeEventData = [];
+        foreach ($planRecipeData as $key => $value) {
+            $planEventRecipeInfo = $planEventRecipeModel->where($condition + ['recipe_id' => $value['id']])->limit(1)->find();
+            if (empty($planEventRecipeInfo)) continue;
+            $tempEventRecipeList = $planEventRecipeListModel->where([
+                'event_recipe_id' => $planEventRecipeInfo['id']
+            ])->order([
+                'group_sort' => 'asc',
+                'article_sort' => 'asc'
+            ])->select();
+            $tempArticleList = [];
+            foreach ($tempEventRecipeList as $index => $item) {
+                $tempArticleList[$item['group_sort']][] = [
+                    'article_id' => $item['article_id'],
+                    'article_name' => ArticleModel::where('id', $item['article_id'])->value('title'),
+                ];
+            }
+            $recipeEventData[] = [
+                'set_notice_time' => $planEventRecipeInfo['set_notice_time'],
+                'recipe_event_name' => $value['name'],
+                'detail' => $tempArticleList
+            ];
+        }
+        //运动事件
+
+        $planEventSportData = $planEventSportModel->where($condition)->select();
+        $sportEventData = [];
+        foreach ($planEventSportData as $key => $value) {
+            $sportInfo = PlanSport::get($value['sport_id']);
+            $tempEventSportList = $planEventSportListModel->where([
+                'event_sport_id' => $value['id']
+            ])->order([
+                'group_sort' => 'asc',
+                'article_sort' => 'asc'
+            ])->select();
+            $tempArticleList = [];
+            foreach ($tempEventSportList as $index => $item) {
+                $tempArticleList[$item['group_sort']][] = [
+                    'article_id' => $item['article_id'],
+                    'article_name' => ArticleModel::where('id', $item['article_id'])->value('title'),
+                ];
+            }
+            $sportEventData[] = [
+                'set_notice_time' => $value['start_time'],
+                'start_time' => $value['start_time'],
+                'end_time' => $value['end_time'],
+                'target_step' => $value['target_step'],
+                'sport_id' => $value['sport_id'],
+                'sport_name' => $sportInfo['name'],
+                'detail' => $tempArticleList
+            ];
+        }
+        $planEventDataData = $planEventDataModel->where($condition)->column('data_id');
+        $dataEventData = [];
+        $planDataList = PlanData::where(['id' => ['in', $planEventDataData]])->select();
+        foreach ($planDataList as $key => $value) {
+            $dataEventData[] = [
+                'set_notice_time' => $value['start_time'],
+                'name' => $value['name']
+            ];
+        }
+
+        $this->returnmsg(200, 'success', compact('baseEventData', 'recipeEventData', 'sportEventData', 'dataEventData'));
     }
 }

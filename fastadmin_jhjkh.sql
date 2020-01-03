@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2020-01-03 00:14:43
+Date: 2020-01-04 01:05:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -721,7 +721,7 @@ CREATE TABLE `fa_app_plan_event_data` (
   `day_of_the_week` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '星期几:0=星期日,1=星期一,2=星期二,3=星期三,4=星期四,5=星期五,6=星期六',
   `data_id` int(11) NOT NULL,
   `data_type_id` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '数据类型:0=普通数据,1=血压数据',
-  `start_time` int(11) NOT NULL,
+  `start_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `format_start_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='计划数据事件';
@@ -729,14 +729,14 @@ CREATE TABLE `fa_app_plan_event_data` (
 -- ----------------------------
 -- Records of fa_app_plan_event_data
 -- ----------------------------
-INSERT INTO `fa_app_plan_event_data` VALUES ('25', '6', '43', '1578412800', '2020-01-08', '3', '1', '0', '18', '1578479400');
-INSERT INTO `fa_app_plan_event_data` VALUES ('26', '6', '43', '1578412800', '2020-01-08', '3', '2', '1', '18', '1578480300');
-INSERT INTO `fa_app_plan_event_data` VALUES ('27', '6', '43', '1578412800', '2020-01-08', '3', '4', '0', '19', '1578481200');
-INSERT INTO `fa_app_plan_event_data` VALUES ('28', '6', '43', '1578412800', '2020-01-08', '3', '6', '0', '20', '1578484800');
-INSERT INTO `fa_app_plan_event_data` VALUES ('29', '6', '43', '1579017600', '2020-01-15', '3', '1', '0', '18', '1579084200');
-INSERT INTO `fa_app_plan_event_data` VALUES ('30', '6', '43', '1579017600', '2020-01-15', '3', '2', '1', '18', '1579085100');
-INSERT INTO `fa_app_plan_event_data` VALUES ('31', '6', '43', '1579017600', '2020-01-15', '3', '4', '0', '19', '1579086000');
-INSERT INTO `fa_app_plan_event_data` VALUES ('32', '6', '43', '1579017600', '2020-01-15', '3', '6', '0', '20', '1579089600');
+INSERT INTO `fa_app_plan_event_data` VALUES ('25', '6', '43', '1578412800', '2020-01-08', '3', '1', '0', '18:30', '1578479400');
+INSERT INTO `fa_app_plan_event_data` VALUES ('26', '6', '43', '1578412800', '2020-01-08', '3', '2', '1', '18:45', '1578480300');
+INSERT INTO `fa_app_plan_event_data` VALUES ('27', '6', '43', '1578412800', '2020-01-08', '3', '4', '0', '19:00', '1578481200');
+INSERT INTO `fa_app_plan_event_data` VALUES ('28', '6', '43', '1578412800', '2020-01-08', '3', '6', '0', '20:00', '1578484800');
+INSERT INTO `fa_app_plan_event_data` VALUES ('29', '6', '43', '1579017600', '2020-01-15', '3', '1', '0', '18:30', '1579084200');
+INSERT INTO `fa_app_plan_event_data` VALUES ('30', '6', '43', '1579017600', '2020-01-15', '3', '2', '1', '18:45', '1579085100');
+INSERT INTO `fa_app_plan_event_data` VALUES ('31', '6', '43', '1579017600', '2020-01-15', '3', '4', '0', '19:00', '1579086000');
+INSERT INTO `fa_app_plan_event_data` VALUES ('32', '6', '43', '1579017600', '2020-01-15', '3', '6', '0', '20:00', '1579089600');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_data_list
