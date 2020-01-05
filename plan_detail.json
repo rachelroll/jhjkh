@@ -1,0 +1,34 @@
+[
+  {
+    "event_key": "起床时间",
+    "event_value": "06:50",
+    "event_timestamp": "1578212871",
+    "event_item": []
+  },
+  {
+    "event_key": "晨起运动",
+    "event_value": "07:00-07:15",
+    "event_timestamp": "1578212871",
+    "event_item": [
+      {
+        "item_key": "运动项目",
+        "item_value": "太极拳"
+      }
+    ]
+  },
+  {
+    "event_key": "早餐时间",
+    "event_value": "08:00",
+    "event_timestamp": "1578212871",
+    "event_item": [
+      {
+        "item_key": "早餐套餐1",
+        "item_value": "窝头+蛋香萝卜丝+大蒜烧鳗鱼"
+      },
+      {
+        "item_key": "早餐套餐2",
+        "item_value": "糖醋里脊+米饭"
+      }
+    ]
+  }
+]

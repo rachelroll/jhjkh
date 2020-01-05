@@ -29,32 +29,40 @@ class Article extends Model
     {
         $result = [];
         foreach ($data as $item) {
-            $result[] = [
-                'id' => $item['id'],
-                'title' => $item['title'],
-                'cover_file' => $item['cover_file'],
-                'view_count' => $item['view_count'],
-                'like_count' => $item['like_count'],
-                'comment_count' => $item['comment_count'],
-                'content_strip' => $item['content_strip'],
-                'userInfo' => [
-                    'id' => $item['appuser']['id'],
-                    'name' => $item['appuser']['name'],
-                    'nickname' => $item['appuser']['nickname'],
-                    'avatar' => $item['appuser']['avatar'],
-                ],
-                'columnInfo' => [
-                    'id' => $item['appcolumn']['id'],
-                    'title' => $item['appcolumn']['title'],
-                    'subtitle' => $item['appcolumn']['subtitle'],
-                    'image' => $item['appcolumn']['image'],
-                ],
-                'labelInfo' => $item['label_arr'],
-                'like_flag' => count($item['like_flag']),
-                'create_time_text' => $item['create_time_text'],
-            ];
+            $result[] = self::formatOne($item);
         }
         return $result;
+    }
+
+    /**
+     * 格式化单条
+     */
+    public static function formatOne($item)
+    {
+        return [
+            'id' => $item['id'],
+            'title' => $item['title'],
+            'cover_file' => $item['cover_file'],
+            'view_count' => $item['view_count'],
+            'like_count' => $item['like_count'],
+            'comment_count' => $item['comment_count'],
+            'content_strip' => $item['content_strip'],
+            'userInfo' => [
+                'id' => $item['appuser']['id'],
+                'name' => $item['appuser']['name'],
+                'nickname' => $item['appuser']['nickname'],
+                'avatar' => $item['appuser']['avatar'],
+            ],
+            'columnInfo' => [
+                'id' => $item['appcolumn']['id'],
+                'title' => $item['appcolumn']['title'],
+                'subtitle' => $item['appcolumn']['subtitle'],
+                'image' => $item['appcolumn']['image'],
+            ],
+            'labelInfo' => $item['label_arr'],
+            'like_flag' => count($item['like_flag']),
+            'create_time_text' => $item['create_time_text'],
+        ];
     }
 
     public function getStatusList()

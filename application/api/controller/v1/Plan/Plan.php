@@ -73,6 +73,7 @@ class Plan extends Api
                             'fall_asleep_time' => $value['base']['fall_asleep_time'],
                             'lunch_break_start' => $value['base']['lunch_break_start'],
                             'lunch_break_end' => $value['base']['lunch_break_end'],
+                            'format_wake_up_time' => strtotime($item['format_date'] . ' ' . $value['base']['wake_up_time']),
                             'format_fall_asleep_time' => strtotime($item['format_date'] . ' ' . $value['base']['fall_asleep_time']),
                             'format_lunch_break_start' => strtotime($item['format_date'] . ' ' . $value['base']['lunch_break_start']),
                             'format_lunch_break_end' => strtotime($item['format_date'] . ' ' . $value['base']['lunch_break_end']),
@@ -184,103 +185,286 @@ class Plan extends Api
 
     /**
      * 计划详情展示
+     * @param plan_id 计划ID
+     * @param day_of_the_week 星期几
      */
-    public function fetch_detail()
+    public function fetch_detail_list()
     {
         $this->checkParam([
             'plan_id' => 'require',
             'day_of_the_week' => 'require',
         ]);
-        //todo 计划基础数据
-        $planEventBaseModel = new PlanEventBaseModel;
-        //todo 计划食谱
-        $planRecipeModel = new PlanRecipeModel;
-        $planEventRecipeModel = new PlanEventRecipeModel;
-        $planEventRecipeListModel = new PlanEventRecipeListModel;
-        //todo 计划运动
-        $planEventSportModel = new PlanEventSportModel;
-        $planEventSportListModel = new PlanEventSportListModel;
-        //todo 创建数据类型
-        $planEventDataModel = new PlanEventDataModel;
 
         $condition = [
             'plan_id' => $this->clientInfo['plan_id'],
             'day_of_the_week' => $this->clientInfo['day_of_the_week'],
         ];
-        //基础事件
-        $planEventBaseData = $planEventBaseModel->where($condition)->limit(1)->find();
-
-        $baseEventData = [
-            'wake_up_time' => $planEventBaseData['wake_up_time'],
-            'fall_asleep_time' => $planEventBaseData['fall_asleep_time'],
-            'lunch_break_start' => $planEventBaseData['lunch_break_start'],
-            'lunch_break_end' => $planEventBaseData['lunch_break_end'],
+        list($baseEventData, $recipeEventData, $sportEventData, $dataEventData) = PlanModel::fetchDetailData($condition);
+        $return = compact('baseEventData', 'recipeEventData', 'sportEventData', 'dataEventData');
+//        halt($return);
+        //todo 事件详情格式化
+        $formatData = [
+            [
+                'event_key' => "起床时间：",
+                'event_value' => $baseEventData['wake_up_time'],
+                'event_timestamp' => $baseEventData['format_wake_up_time'],
+                'event_item' => []
+            ],
+            [
+                'event_key' => "午休时间：",
+                'event_value' => $baseEventData['lunch_break_start'] . '-' . $baseEventData['lunch_break_end'],
+                'event_timestamp' => $baseEventData['format_lunch_break_start'],
+                'event_item' => []
+            ],
+            [
+                'event_key' => "入睡时间：",
+                'event_value' => $baseEventData['fall_asleep_time'],
+                'event_timestamp' => $baseEventData['format_fall_asleep_time'],
+                'event_item' => []
+            ],
         ];
-        $condition['date'] = $planEventBaseData['date'];
-        //全部的食谱分类
-        $planRecipeData = $planRecipeModel->where([])->order(['sort' => 'desc', 'id' => 'asc'])->select();
-        $recipeEventData = [];
-        foreach ($planRecipeData as $key => $value) {
-            $planEventRecipeInfo = $planEventRecipeModel->where($condition + ['recipe_id' => $value['id']])->limit(1)->find();
-            if (empty($planEventRecipeInfo)) continue;
-            $tempEventRecipeList = $planEventRecipeListModel->where([
-                'event_recipe_id' => $planEventRecipeInfo['id']
-            ])->order([
-                'group_sort' => 'asc',
-                'article_sort' => 'asc'
-            ])->select();
-            $tempArticleList = [];
-            foreach ($tempEventRecipeList as $index => $item) {
-                $tempArticleList[$item['group_sort']][] = [
-                    'article_id' => $item['article_id'],
-                    'article_name' => ArticleModel::where('id', $item['article_id'])->value('title'),
-                ];
-            }
-            $recipeEventData[] = [
-                'set_notice_time' => $planEventRecipeInfo['set_notice_time'],
-                'recipe_event_name' => $value['name'],
-                'detail' => $tempArticleList
-            ];
-        }
-        //运动事件
 
-        $planEventSportData = $planEventSportModel->where($condition)->select();
-        $sportEventData = [];
-        foreach ($planEventSportData as $key => $value) {
-            $sportInfo = PlanSport::get($value['sport_id']);
-            $tempEventSportList = $planEventSportListModel->where([
-                'event_sport_id' => $value['id']
-            ])->order([
-                'group_sort' => 'asc',
-                'article_sort' => 'asc'
-            ])->select();
-            $tempArticleList = [];
-            foreach ($tempEventSportList as $index => $item) {
-                $tempArticleList[$item['group_sort']][] = [
-                    'article_id' => $item['article_id'],
-                    'article_name' => ArticleModel::where('id', $item['article_id'])->value('title'),
+        //食谱
+        $recipeFormatData = [];
+        foreach ($recipeEventData as $key => $value) {
+            $tempEventItem = [];
+            foreach ($value['detail'] as $index => $item) {
+                $tempEventItem[] = [
+                    "item_key" => $index == 1 ? '主食：' : '辅食：',
+                    "item_value" => implode('+', array_filter(array_column($item, 'article_name')))
                 ];
             }
-            $sportEventData[] = [
-                'set_notice_time' => $value['start_time'],
-                'start_time' => $value['start_time'],
-                'end_time' => $value['end_time'],
-                'target_step' => $value['target_step'],
-                'sport_id' => $value['sport_id'],
-                'sport_name' => $sportInfo['name'],
-                'detail' => $tempArticleList
-            ];
-        }
-        $planEventDataData = $planEventDataModel->where($condition)->column('data_id');
-        $dataEventData = [];
-        $planDataList = PlanData::where(['id' => ['in', $planEventDataData]])->select();
-        foreach ($planDataList as $key => $value) {
-            $dataEventData[] = [
-                'set_notice_time' => $value['start_time'],
-                'name' => $value['name']
+            $recipeFormatData[] = [
+                'event_key' => $value['name'] . '：',
+                'event_value' => $value['set_notice_time'],
+                'event_timestamp' => strtotime($value['set_notice_time']),
+                'event_item' => $tempEventItem
             ];
         }
 
-        $this->returnmsg(200, 'success', compact('baseEventData', 'recipeEventData', 'sportEventData', 'dataEventData'));
+        //运动
+        $sportFormatData = [];
+        foreach ($sportEventData as $key => $value) {
+            $tempEventItem = [];
+            foreach ($value['detail'] as $index => $item) {
+                $tempEventItem[] = [
+                    "item_key" => $index == 1 ? '主食：' : '辅食：',
+                    "item_value" => implode('+', array_filter(array_column($item, 'article_name')))
+                ];
+            }
+            $sportFormatData[] = [
+                'event_key' => $value['name'] . '：',
+                'event_value' => !empty($value['target_step']) ? $value['target_step'] . '步' : $value['start_time'] . '-' . $value['end_time'],
+                'event_timestamp' => $value['format_set_notice_time'],
+                'event_item' => $tempEventItem
+            ];
+        }
+        //数据
+        $dataFormatData = [];
+        foreach ($dataEventData as $key => $value) {
+            $dataFormatData[] = [
+                'event_key' => '健康数据：',
+                'event_value' => $value['set_notice_time'],
+                'event_timestamp' => $value['format_set_notice_time'],
+                'event_item' => [
+                    "item_key" => '测量数据：',
+                    "item_value" => $value['name']
+                ]
+            ];
+        }
+        $formatData = array_merge($formatData, $recipeFormatData, $sportFormatData, $dataFormatData);
+        //todo 事件按时间排序
+        $eventTimestampArr = array_column($formatData, 'event_timestamp');
+        array_multisort($eventTimestampArr, SORT_ASC, $formatData);
+
+        $this->returnmsg(200, 'success', $formatData);
+    }
+
+    /**
+     * 计划详情展示
+     * @param day
+     */
+    public function fetch_detail_by_date()
+    {
+        $this->checkParam(['date']);
+        $condition = [
+            'plan_id' => 43,
+            'date' => strtotime($this->clientInfo['date']),
+        ];
+        list($baseEventData, $recipeEventData, $sportEventData, $dataEventData) = PlanModel::fetchDetailData($condition);
+        //$return = compact('baseEventData', 'recipeEventData', 'sportEventData', 'dataEventData');
+        //dump($return);
+
+        //todo 事件详情格式化 $event_type:1=基础事件-起床,2=基础事件-午休,3=基础事件-入睡,4=食谱,5=运动,6=数据
+        $formatData = [
+            [
+                'event_type' => "1",
+                'event_target_id' => $baseEventData['id'],
+                'cover_image' => '/upload/none.png',
+                'name' => '起床',
+                'sketch' => '早睡早起身体好，早安！',
+                'event_timestamp' => strtotime($baseEventData['wake_up_time']),
+                'event_time_text' => $baseEventData['wake_up_time'],
+            ],
+            [
+                'event_type' => "2",
+                'event_target_id' => $baseEventData['id'],
+                'cover_image' => '/upload/none.png',
+                'name' => '午休',
+                'sketch' => '适当休息一下吧~',
+                'event_time_text' => $baseEventData['lunch_break_start'] . '-' . $baseEventData['lunch_break_end'],
+                'event_timestamp' => strtotime($baseEventData['lunch_break_start']),
+            ],
+            [
+                'event_type' => "3",
+                'event_target_id' => $baseEventData['id'],
+                'cover_image' => '/upload/none.png',
+                'name' => '入睡',
+                'sketch' => '早睡早起身体好，晚安！',
+                'event_time_text' => $baseEventData['fall_asleep_time'],
+                'event_timestamp' => strtotime($baseEventData['fall_asleep_time']),
+            ],
+        ];
+
+        //食谱
+        $recipeFormatData = [];
+        foreach ($recipeEventData as $key => $value) {
+            $tempEventItem = [];
+            foreach ($value['detail'] as $index => $item) {
+                $tempEventItem[] = [
+                    "item_key" => $index == 1 ? '主食：' : '辅食：',
+                    "item_value" => implode('+', array_filter(array_column($item, 'article_name')))
+                ];
+            }
+            $tempEventItemStr = implode('+', array_column($tempEventItem, 'item_value'));
+            $recipeFormatData[] = [
+                'event_type' => "4",
+                'event_target_id' => $value['id'],
+                'cover_image' => $value['cover_image'],
+                'name' => $value['name'],
+                'sketch' => !empty($tempEventItemStr) ? $tempEventItemStr : $value['sketch'],
+                'event_timestamp' => $value['format_set_notice_time'],
+                'event_time_text' => $value['set_notice_time'],
+            ];
+        }
+
+        //运动
+        $sportFormatData = [];
+        foreach ($sportEventData as $key => $value) {
+            $tempEventItem = [];
+            foreach ($value['detail'] as $index => $item) {
+                $tempEventItem[] = [
+                    "item_key" => $index == 1 ? '主食：' : '辅食：',
+                    "item_value" => implode('+', array_filter(array_column($item, 'article_name')))
+                ];
+            }
+            $tempEventItemStr = implode('+', array_column($tempEventItem, 'item_value'));
+            $tempSketch = !empty($value['target_step']) ? $value['target_step'] . '步' : $value['start_time'] . '-' . $value['end_time'];
+            $sportFormatData[] = [
+                'event_type' => "5",
+                'event_target_id' => $value['id'],
+                'cover_image' => $value['cover_image'],
+                'name' => $value['name'],
+                'sketch' => !empty($tempEventItemStr) ? $tempEventItemStr : $tempSketch,
+                'event_timestamp' => $value['format_set_notice_time'],
+                'event_time_text' => $value['set_notice_time'],
+            ];
+        }
+        //数据
+        $dataFormatData = [];
+        foreach ($dataEventData as $key => $value) {
+            $dataFormatData[] = [
+                'event_type' => "6",
+                'event_target_id' => $value['id'],
+                'cover_image' => $value['cover_image'],
+                'name' => $value['name'],
+                'sketch' => $value['sketch'],
+                'event_timestamp' => $value['format_set_notice_time'],
+                'event_time_text' => $value['set_notice_time'],
+            ];
+        }
+        $formatData = array_merge($formatData, $recipeFormatData, $sportFormatData, $dataFormatData);
+        //todo 事件按时间排序
+        $eventTimestampArr = array_column($formatData, 'event_timestamp');
+        array_multisort($eventTimestampArr, SORT_ASC, $formatData);
+
+        $this->returnmsg(200, 'success', $formatData);
+    }
+
+    /**
+     * 事件设置稍后提醒
+     * @param event_type
+     * @param event_target_id
+     */
+    public function set_delay_notice()
+    {
+        $this->checkParam([
+            'event_type' => 'require',
+            'event_target_id' => 'require',
+        ]);
+        //todo 事件详情格式化 $event_type:1=基础事件-起床,2=基础事件-午休,3=基础事件-入睡,4=食谱,5=运动,6=数据
+        Db::startTrans();
+        try {
+            $delayTime = 3600;
+            $event_time_text = 0;
+            switch ((int)$this->clientInfo['event_type']) {
+
+                case 1:
+                    //todo 计划基础数据
+                    $planEventBaseModel = new PlanEventBaseModel;
+                    $planEventBaseInfo = $planEventBaseModel->where('id', $this->clientInfo['event_target_id'])->limit(1)->find();
+                    $planEventBaseInfo->format_wake_up_time = $planEventBaseInfo->format_wake_up_time + $delayTime;
+                    $event_time_text = $planEventBaseInfo->wake_up_time = date('H:i', $planEventBaseInfo->format_wake_up_time);
+                    $planEventBaseInfo->save();
+                    break;
+                case 2:
+                    //todo 计划基础数据
+                    $planEventBaseModel = new PlanEventBaseModel;
+                    $planEventBaseInfo = $planEventBaseModel->where('id', $this->clientInfo['event_target_id'])->limit(1)->find();
+                    $planEventBaseInfo->format_lunch_break_start = $planEventBaseInfo->format_lunch_break_start + $delayTime;
+                    $event_time_text = $planEventBaseInfo->lunch_break_start = date('H:i', $planEventBaseInfo->format_lunch_break_start);
+                    $planEventBaseInfo->save();
+                    break;
+                case 3:
+                    //todo 计划基础数据
+                    $planEventBaseModel = new PlanEventBaseModel;
+                    $planEventBaseInfo = $planEventBaseModel->where('id', $this->clientInfo['event_target_id'])->limit(1)->find();
+                    $planEventBaseInfo->format_fall_asleep_time = $planEventBaseInfo->format_fall_asleep_time + $delayTime;
+                    $event_time_text = $planEventBaseInfo->fall_asleep_time = date('H:i', $planEventBaseInfo->format_fall_asleep_time);
+                    $planEventBaseInfo->save();
+                    break;
+                case 4:
+                    //todo 计划食谱
+                    $planEventRecipeModel = new PlanEventRecipeModel;
+                    $planEventRecipeInfo = $planEventRecipeModel->where('id', $this->clientInfo['event_target_id'])->limit(1)->find();
+                    $planEventRecipeInfo->format_set_notice_time = $planEventRecipeInfo->format_set_notice_time + $delayTime;
+                    $event_time_text = $planEventRecipeInfo->set_notice_time = date('H:i', $planEventRecipeInfo->format_set_notice_time);
+                    $planEventRecipeInfo->save();
+                    break;
+                case 5:
+                    //todo 计划运动
+                    $planEventSportModel = new PlanEventSportModel;
+                    $planEventSportInfo = $planEventSportModel->where('id', $this->clientInfo['event_target_id'])->limit(1)->find();
+                    $planEventSportInfo->format_start_time = $planEventSportInfo->format_start_time + $delayTime;
+                    $event_time_text = $planEventSportInfo->start_time = date('H:i', $planEventSportInfo->format_start_time);
+                    $planEventSportInfo->save();
+                    break;
+                case 6:
+                    //todo 创建数据类型
+                    $planEventDataModel = new PlanEventDataModel;
+                    $planEventDataInfo = $planEventDataModel->where('id', $this->clientInfo['event_target_id'])->limit(1)->find();
+                    $planEventDataInfo->format_start_time = $planEventDataInfo->format_start_time + $delayTime;
+                    $event_time_text = $planEventDataInfo->start_time = date('H:i', $planEventDataInfo->format_start_time);
+                    $planEventDataInfo->save();
+                    break;
+                default:
+                    break;
+            }
+            Db::commit();
+        } catch (Exception $exception) {
+            Db::rollback();
+            $this->returnmsg(400, $exception->getMessage());
+        }
+        $this->returnmsg(200, 'success', compact('event_time_text'));
     }
 }

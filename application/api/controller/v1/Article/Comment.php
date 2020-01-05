@@ -36,7 +36,7 @@ class Comment extends Api
             $articleData->setInc('comment_count');
             $articleData->save();
             DynamicModel::create([
-                'description' => '评论文章',
+                'description' => $this->clientInfo['content'],
                 'user_id' => $this->user_id,
                 'article_type_id' => $articleData['type_id'],
                 'article_column_id' => $articleData['column_id'],

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2020-01-04 01:05:16
+Date: 2020-01-06 00:02:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,7 +41,7 @@ CREATE TABLE `fa_admin` (
 -- ----------------------------
 -- Records of fa_admin
 -- ----------------------------
-INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20200102/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1577977489', '127.0.0.1', '1492186163', '1577977574', '1808a3e3-52c0-4fb8-b05e-84b1ab3e5471', 'normal');
+INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20200102/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1578210500', '127.0.0.1', '1492186163', '1578210500', '7d006086-40e3-49be-879b-7773c1e2e8a8', 'normal');
 
 -- ----------------------------
 -- Table structure for fa_admin_log
@@ -59,7 +59,7 @@ CREATE TABLE `fa_admin_log` (
   `createtime` int(10) DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`id`),
   KEY `name` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
 
 -- ----------------------------
 -- Records of fa_admin_log
@@ -239,6 +239,8 @@ INSERT INTO `fa_admin_log` VALUES ('172', '1', 'admin', '/gWqP6hutKT.php/auth/gr
 INSERT INTO `fa_admin_log` VALUES ('173', '1', 'admin', '/gWqP6hutKT.php/auth/group/roletree', '权限管理 角色组', '{\"id\":\"2\",\"pid\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577977663');
 INSERT INTO `fa_admin_log` VALUES ('174', '1', 'admin', '/gWqP6hutKT.php/addon/state', '插件管理 禁用启用', '{\"name\":\"alioss\",\"action\":\"enable\",\"force\":\"0\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577978090');
 INSERT INTO `fa_admin_log` VALUES ('175', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1577978091');
+INSERT INTO `fa_admin_log` VALUES ('176', '0', 'Unknown', '/gWqP6hutKT.php/index/login?url=%2FgWqP6hutKT.php', '', '{\"url\":\"\\/gWqP6hutKT.php\",\"__token__\":\"35c52bd3ca1222635bc5f9602efa7ea2\",\"username\":\"admin\",\"captcha\":\"ajma\",\"keeplogin\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578210493');
+INSERT INTO `fa_admin_log` VALUES ('177', '1', 'admin', '/gWqP6hutKT.php/index/login?url=%2FgWqP6hutKT.php', '登录', '{\"url\":\"\\/gWqP6hutKT.php\",\"__token__\":\"7bc84bc3e1f6613a4771bc993bbfe52b\",\"username\":\"admin\",\"captcha\":\"tdef\",\"keeplogin\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578210500');
 
 -- ----------------------------
 -- Table structure for fa_app_achievement
@@ -485,10 +487,10 @@ CREATE TABLE `fa_app_column` (
 -- ----------------------------
 -- Records of fa_app_column
 -- ----------------------------
-INSERT INTO `fa_app_column` VALUES ('1', '讲座', '讲座描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '0', '1577020599', '1577020599');
-INSERT INTO `fa_app_column` VALUES ('2', '专家', '专家描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '0', '1577020609', '1577020609');
-INSERT INTO `fa_app_column` VALUES ('3', '教练', '教练描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '0', '1577020628', '1577020628');
-INSERT INTO `fa_app_column` VALUES ('4', '膳食', '膳食描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '0', '1577020639', '1577603604');
+INSERT INTO `fa_app_column` VALUES ('1', '讲座', '讲座描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '1', '1577020599', '1577020599');
+INSERT INTO `fa_app_column` VALUES ('2', '专家', '专家描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '1', '1577020609', '1577020609');
+INSERT INTO `fa_app_column` VALUES ('3', '教练', '教练描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '1', '1577020628', '1577020628');
+INSERT INTO `fa_app_column` VALUES ('4', '膳食', '膳食描述', '/uploads/20191229/26f5e51b8ac7fbd6f1c649cc45a18265.png', '0', '1', '1577020639', '1577603604');
 
 -- ----------------------------
 -- Table structure for fa_app_comment
@@ -696,6 +698,7 @@ CREATE TABLE `fa_app_plan_event_base` (
   `fall_asleep_time` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '入睡时间',
   `lunch_break_start` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '午睡开始时间',
   `lunch_break_end` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '午睡结束时间',
+  `format_wake_up_time` int(11) NOT NULL COMMENT '起床时间',
   `format_fall_asleep_time` int(11) NOT NULL COMMENT '入睡时间',
   `format_lunch_break_start` int(11) NOT NULL COMMENT '午睡开始时间',
   `format_lunch_break_end` int(11) NOT NULL COMMENT '午睡结束时间',
@@ -705,8 +708,8 @@ CREATE TABLE `fa_app_plan_event_base` (
 -- ----------------------------
 -- Records of fa_app_plan_event_base
 -- ----------------------------
-INSERT INTO `fa_app_plan_event_base` VALUES ('15', '6', '43', '1578412800', '2020-01-08', '3', '07:30', '11:30', '13:00', '13:30', '1578454200', '1578459600', '1578461400');
-INSERT INTO `fa_app_plan_event_base` VALUES ('16', '6', '43', '1579017600', '2020-01-15', '3', '07:30', '11:30', '13:00', '13:30', '1579059000', '1579064400', '1579066200');
+INSERT INTO `fa_app_plan_event_base` VALUES ('15', '6', '43', '1578412800', '2020-01-08', '3', '10:00', '12:30', '13:00', '13:30', '7200', '1578457800', '1578459600', '1578461400');
+INSERT INTO `fa_app_plan_event_base` VALUES ('16', '6', '43', '1579017600', '2020-01-15', '3', '07:30', '11:30', '13:00', '13:30', '0', '1579059000', '1579064400', '1579066200');
 
 -- ----------------------------
 -- Table structure for fa_app_plan_event_data

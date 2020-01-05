@@ -91,22 +91,22 @@ class Activity extends Api
     /**
      * 转发活动分享至个人动态
      */
-    public function share()
-    {
-        $this->checkParam(['id' => 'require']);
-        $activityData = ActivityModel::where(['id' => $this->clientInfo['id']])->find();
-        $dynamicCount = DynamicModel::where([
-            'type_id' => 6,
-            'activity_id' => $activityData['id'],
-        ])->count();
-        if (!$dynamicCount) {
-            DynamicModel::create([
-                'description' => '转发动态',
-                'user_id' => $this->user_id,
-                'activity_id' => $activityData['id'],
-                'type_id' => 6,
-            ]);
-        }
-        $this->returnmsg(200, 'success');
-    }
+//    public function share()
+//    {
+//        $this->checkParam(['id' => 'require']);
+//        $activityData = ActivityModel::where(['id' => $this->clientInfo['id']])->find();
+//        $dynamicCount = DynamicModel::where([
+//            'type_id' => 6,
+//            'activity_id' => $activityData['id'],
+//        ])->count();
+//        if (!$dynamicCount) {
+//            DynamicModel::create([
+//                'description' => '转发动态',
+//                'user_id' => $this->user_id,
+//                'activity_id' => $activityData['id'],
+//                'type_id' => 6,
+//            ]);
+//        }
+//        $this->returnmsg(200, 'success');
+//    }
 }
