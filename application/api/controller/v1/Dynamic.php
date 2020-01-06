@@ -67,11 +67,13 @@ class Dynamic extends Api
                 },
             ])->limit(1)->find();
             $formatRes = ArticleModel::formatOne($articleInfo);
-            $returnData[] = array_merge([
+            $returnData[] = [
+                'id' => $value['id'],
                 'description' => $value['description'],
                 'type_id' => $value['type_id'],
                 'create_time_text' => $value['create_time_text'],
-            ], $formatRes);
+                'article' => $formatRes
+            ];
         }
         $data['data'] = $returnData;
         $this->returnmsg(200, 'success', $data);
