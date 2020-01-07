@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
+Source Server         : localhost_3306
 Source Server Version : 50553
-Source Host           : 127.0.0.1:3306
+Source Host           : localhost:3306
 Source Database       : fastadmin_jhjkh
 
 Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2020-01-07 00:19:20
+Date: 2020-01-07 17:34:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,7 +41,7 @@ CREATE TABLE `fa_admin` (
 -- ----------------------------
 -- Records of fa_admin
 -- ----------------------------
-INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20200102/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1578324323', '127.0.0.1', '1492186163', '1578324323', 'f7b69a47-90db-4813-85fa-13738cc4971e', 'normal');
+INSERT INTO `fa_admin` VALUES ('1', 'admin', 'Admin', 'e13cca8b364e098adcd8da41c3a7b254', '2edd77', '/uploads/20200102/f57ebce8a72b823912904fe76eda0909.png', 'admin@admin.com', '0', '1578383398', '127.0.0.1', '1492186163', '1578383398', '0c7ab5a5-20ad-4c73-a78e-5fa8612d8343', 'normal');
 
 -- ----------------------------
 -- Table structure for fa_admin_log
@@ -59,7 +59,7 @@ CREATE TABLE `fa_admin_log` (
   `createtime` int(10) DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`id`),
   KEY `name` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=216 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='管理员日志表';
 
 -- ----------------------------
 -- Records of fa_admin_log
@@ -262,15 +262,33 @@ INSERT INTO `fa_admin_log` VALUES ('195', '1', 'admin', '/gWqP6hutKT.php/command
 INSERT INTO `fa_admin_log` VALUES ('196', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/Message.php\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578325279');
 INSERT INTO `fa_admin_log` VALUES ('197', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578325279');
 INSERT INTO `fa_admin_log` VALUES ('198', '1', 'admin', '/gWqP6hutKT.php/user/user/index', '会员管理 会员管理 查看', '{\"q_word\":[\"\"],\"pageNumber\":\"1\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"nickname\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"nickname\",\"keyField\":\"id\",\"searchField\":[\"nickname\"],\"nickname\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578325340');
+INSERT INTO `fa_admin_log` VALUES ('199', '1', 'admin', '/gWqP6hutKT.php/index/login?url=%2FgWqP6hutKT.php', '登录', '{\"url\":\"\\/gWqP6hutKT.php\",\"__token__\":\"6145c79cb06e3333c2fb8daaeedc8d6e\",\"username\":\"admin\",\"captcha\":\"ctnv\",\"keeplogin\":\"1\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383398');
+INSERT INTO `fa_admin_log` VALUES ('200', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383776');
+INSERT INTO `fa_admin_log` VALUES ('201', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_achievement\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383778');
+INSERT INTO `fa_admin_log` VALUES ('202', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383791');
+INSERT INTO `fa_admin_log` VALUES ('203', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383791');
+INSERT INTO `fa_admin_log` VALUES ('204', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383791');
+INSERT INTO `fa_admin_log` VALUES ('205', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_admin\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383791');
+INSERT INTO `fa_admin_log` VALUES ('206', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_user\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383796');
+INSERT INTO `fa_admin_log` VALUES ('207', '1', 'admin', '/gWqP6hutKT.php/command/get_field_list', '在线命令管理', '{\"table\":\"fa_app_user\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383796');
+INSERT INTO `fa_admin_log` VALUES ('208', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"1\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_achievement\",\"controller\":\"app\\/Achievement\",\"model\":\"\",\"relation\":{\"2\":{\"relation\":\"fa_app_user\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"user_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"nickname\",\"avatar\"]}},\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383807');
+INSERT INTO `fa_admin_log` VALUES ('209', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"crud\",\"isrelation\":\"1\",\"local\":\"1\",\"delete\":\"0\",\"force\":\"0\",\"table\":\"fa_app_achievement\",\"controller\":\"app\\/Achievement\",\"model\":\"\",\"relation\":{\"2\":{\"relation\":\"fa_app_user\",\"relationmode\":\"belongsto\",\"relationforeignkey\":\"user_id\",\"relationprimarykey\":\"id\",\"relationfields\":[\"nickname\",\"avatar\"]}},\"setcheckboxsuffix\":\"\",\"enumradiosuffix\":\"\",\"imagefield\":\"\",\"filefield\":\"\",\"intdatesuffix\":\"\",\"switchsuffix\":\"\",\"citysuffix\":\"\",\"selectpagesuffix\":\"\",\"selectpagessuffix\":\"\",\"ignorefields\":\"\",\"sortfield\":\"\",\"editorsuffix\":\"\",\"headingfilterfield\":\"\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383807');
+INSERT INTO `fa_admin_log` VALUES ('210', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383807');
+INSERT INTO `fa_admin_log` VALUES ('211', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"1\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383809');
+INSERT INTO `fa_admin_log` VALUES ('212', '1', 'admin', '/gWqP6hutKT.php/command/get_controller_list', '在线命令管理', '{\"q_word\":[\"\"],\"pageNumber\":\"1\",\"pageSize\":\"10\",\"andOr\":\"AND\",\"orderBy\":[[\"name\",\"ASC\"]],\"searchTable\":\"tbl\",\"showField\":\"name\",\"keyField\":\"id\",\"searchField\":[\"name\"],\"name\":\"\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383810');
+INSERT INTO `fa_admin_log` VALUES ('213', '1', 'admin', '/gWqP6hutKT.php/command/command/action/command', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/Achievement.php\",\"action\":\"command\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383811');
+INSERT INTO `fa_admin_log` VALUES ('214', '1', 'admin', '/gWqP6hutKT.php/command/command/action/execute', '在线命令管理', '{\"commandtype\":\"menu\",\"allcontroller\":\"0\",\"delete\":\"0\",\"force\":\"0\",\"controllerfile_text\":\"\",\"controllerfile\":\"app\\/Achievement.php\",\"action\":\"execute\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383812');
+INSERT INTO `fa_admin_log` VALUES ('215', '1', 'admin', '/gWqP6hutKT.php/index/index', '', '{\"action\":\"refreshmenu\"}', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', '1578383812');
 
 -- ----------------------------
 -- Table structure for fa_app_achievement
 -- ----------------------------
 DROP TABLE IF EXISTS `fa_app_achievement`;
 CREATE TABLE `fa_app_achievement` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '成就名称',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '成就名称',
+  `type_id` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '成就类型:0=其他,1=运动达成',
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -645,12 +663,12 @@ CREATE TABLE `fa_app_message` (
   `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '消息正文',
   `type_id` enum('1','2','3','4','5') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '消息类型:1=系统,2=活动,3=事件,4=评论,5=点赞',
   `event_target_id` int(11) NOT NULL COMMENT '事件ID',
-  `event_type` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '事件类型:0=''无'',1=起床,2=午休,3=入睡,4=食谱,5=运动,6=数据',
+  `event_type` enum('0','1','2','3','4','5','6') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '事件类型:0=无,1=起床,2=午休,3=入睡,4=食谱,5=运动,6=数据',
   `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '消息状态:0=未读,1=已读',
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='站内消息';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='站内消息';
 
 -- ----------------------------
 -- Records of fa_app_message
@@ -658,6 +676,9 @@ CREATE TABLE `fa_app_message` (
 INSERT INTO `fa_app_message` VALUES ('6', '6', '起床啦', '快来迎接美好的一天', '3', '17', '1', '0', '1578327541', '1578327541');
 INSERT INTO `fa_app_message` VALUES ('7', '6', '午间发送一下吧', '合理放松，事半功倍！', '3', '17', '2', '0', '1578327541', '1578327541');
 INSERT INTO `fa_app_message` VALUES ('8', '6', '休息啦', '忙碌了一天，早点休息吧~', '3', '17', '3', '0', '1578327541', '1578327541');
+INSERT INTO `fa_app_message` VALUES ('9', '6', '食谱消息早餐', '食谱消息的正文内容', '3', '116', '4', '0', '1578385967', '1578385967');
+INSERT INTO `fa_app_message` VALUES ('11', '6', '运动消息太极拳', '运动消息的正文内容', '3', '21', '5', '0', '1578386623', '1578386623');
+INSERT INTO `fa_app_message` VALUES ('12', '6', '数据消息体重', '运动消息的正文内容', '3', '33', '6', '0', '1578386981', '1578386981');
 
 -- ----------------------------
 -- Table structure for fa_app_plan
@@ -983,7 +1004,7 @@ CREATE TABLE `fa_app_step` (
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='微信运动步数';
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='微信运动步数';
 
 -- ----------------------------
 -- Records of fa_app_step
@@ -1004,36 +1025,37 @@ INSERT INTO `fa_app_step` VALUES ('48', '6', '0', '0', '0', '1575388800', '15770
 INSERT INTO `fa_app_step` VALUES ('49', '6', '0', '0', '0', '1575475200', '1577019297', '1577019297');
 INSERT INTO `fa_app_step` VALUES ('50', '6', '0', '0', '0', '1575561600', '1577019297', '1577019297');
 INSERT INTO `fa_app_step` VALUES ('51', '6', '0', '0', '0', '1575648000', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('52', '6', '0', '0', '0', '1575734400', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('53', '6', '0', '0', '0', '1575820800', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('54', '6', '0', '0', '0', '1575907200', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('55', '6', '0', '0', '0', '1575993600', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('56', '6', '0', '0', '0', '1576080000', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('57', '6', '0', '0', '0', '1576166400', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('58', '6', '0', '0', '0', '1576252800', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('59', '6', '0', '0', '0', '1576339200', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('60', '6', '0', '0', '0', '1576425600', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('61', '6', '0', '0', '0', '1576512000', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('62', '6', '0', '0', '0', '1576598400', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('63', '6', '0', '0', '0', '1576684800', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('64', '6', '0', '0', '0', '1576771200', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('65', '6', '5561', '0', '0', '1576857600', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('66', '6', '1251', '0', '0', '1576944000', '1577019297', '1577019297');
-INSERT INTO `fa_app_step` VALUES ('67', '6', '5792', '0', '0', '1577030400', '1577610355', '1577610355');
-INSERT INTO `fa_app_step` VALUES ('68', '6', '10989', '0', '0', '1577116800', '1577610355', '1577610355');
-INSERT INTO `fa_app_step` VALUES ('69', '6', '6195', '0', '0', '1577203200', '1577610355', '1577610355');
-INSERT INTO `fa_app_step` VALUES ('70', '6', '5508', '0', '0', '1577289600', '1577610355', '1577610355');
-INSERT INTO `fa_app_step` VALUES ('71', '6', '6209', '0', '0', '1577376000', '1577610355', '1577610355');
-INSERT INTO `fa_app_step` VALUES ('72', '6', '5905', '0', '0', '1577462400', '1577610355', '1577610355');
-INSERT INTO `fa_app_step` VALUES ('73', '6', '1162', '0', '0', '1577548800', '1577610355', '1577610355');
-INSERT INTO `fa_app_step` VALUES ('74', '6', '5264', '0', '0', '1577635200', '1578324293', '1578324293');
-INSERT INTO `fa_app_step` VALUES ('75', '6', '5697', '0', '0', '1577721600', '1578324293', '1578324293');
-INSERT INTO `fa_app_step` VALUES ('76', '6', '1414', '0', '0', '1577808000', '1578324293', '1578324293');
-INSERT INTO `fa_app_step` VALUES ('77', '6', '5292', '0', '0', '1577894400', '1578324293', '1578324293');
-INSERT INTO `fa_app_step` VALUES ('78', '6', '5966', '0', '0', '1577980800', '1578324293', '1578324293');
-INSERT INTO `fa_app_step` VALUES ('79', '6', '8007', '0', '0', '1578067200', '1578324293', '1578324293');
-INSERT INTO `fa_app_step` VALUES ('80', '6', '1953', '0', '0', '1578153600', '1578324293', '1578324293');
-INSERT INTO `fa_app_step` VALUES ('81', '6', '6193', '0', '0', '1578240000', '1578324293', '1578324293');
+INSERT INTO `fa_app_step` VALUES ('52', '6', '0', '0', '0', '1575734400', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('53', '6', '0', '0', '0', '1575820800', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('54', '6', '0', '0', '0', '1575907200', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('55', '6', '0', '0', '0', '1575993600', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('56', '6', '0', '0', '0', '1576080000', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('57', '6', '0', '0', '0', '1576166400', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('58', '6', '0', '0', '0', '1576252800', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('59', '6', '0', '0', '0', '1576339200', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('60', '6', '0', '0', '0', '1576425600', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('61', '6', '0', '0', '0', '1576512000', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('62', '6', '0', '0', '0', '1576598400', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('63', '6', '0', '0', '0', '1576684800', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('64', '6', '0', '0', '0', '1576771200', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('65', '6', '5561', '0', '0', '1576857600', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('66', '6', '1604', '0', '0', '1576944000', '1577019297', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('67', '6', '5792', '0', '0', '1577030400', '1577610355', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('68', '6', '10989', '0', '0', '1577116800', '1577610355', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('69', '6', '6195', '0', '0', '1577203200', '1577610355', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('70', '6', '5508', '0', '0', '1577289600', '1577610355', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('71', '6', '6209', '0', '0', '1577376000', '1577610355', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('72', '6', '5905', '0', '0', '1577462400', '1577610355', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('73', '6', '1162', '0', '0', '1577548800', '1577610355', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('74', '6', '5264', '0', '0', '1577635200', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('75', '6', '5697', '0', '0', '1577721600', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('76', '6', '1414', '0', '0', '1577808000', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('77', '6', '5292', '0', '0', '1577894400', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('78', '6', '5966', '0', '0', '1577980800', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('79', '6', '8007', '0', '0', '1578067200', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('80', '6', '1953', '0', '0', '1578153600', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('81', '6', '6193', '0', '0', '1578240000', '1578324293', '1578389072');
+INSERT INTO `fa_app_step` VALUES ('83', '6', '3299', '0', '0', '1578326400', '1578387899', '1578389072');
 
 -- ----------------------------
 -- Table structure for fa_app_step_like
@@ -1203,7 +1225,7 @@ CREATE TABLE `fa_auth_rule` (
   UNIQUE KEY `name` (`name`) USING BTREE,
   KEY `pid` (`pid`),
   KEY `weigh` (`weigh`)
-) ENGINE=InnoDB AUTO_INCREMENT=316 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='节点表';
+) ENGINE=InnoDB AUTO_INCREMENT=322 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='节点表';
 
 -- ----------------------------
 -- Records of fa_auth_rule
@@ -1488,6 +1510,12 @@ INSERT INTO `fa_auth_rule` VALUES ('312', 'file', '310', 'app/message/add', '添
 INSERT INTO `fa_auth_rule` VALUES ('313', 'file', '310', 'app/message/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1578325279', '1578325279', '0', 'normal');
 INSERT INTO `fa_auth_rule` VALUES ('314', 'file', '310', 'app/message/del', '删除', 'fa fa-circle-o', '', '', '0', '1578325279', '1578325279', '0', 'normal');
 INSERT INTO `fa_auth_rule` VALUES ('315', 'file', '310', 'app/message/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1578325279', '1578325279', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('316', 'file', '171', 'app/achievement', '成就', 'fa fa-circle-o\r', '', '', '1', '1578383812', '1578383812', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('317', 'file', '316', 'app/achievement/index', '查看', 'fa fa-circle-o', '', '', '0', '1578383812', '1578383812', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('318', 'file', '316', 'app/achievement/add', '添加', 'fa fa-circle-o', '', '', '0', '1578383812', '1578383812', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('319', 'file', '316', 'app/achievement/edit', '编辑', 'fa fa-circle-o', '', '', '0', '1578383812', '1578383812', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('320', 'file', '316', 'app/achievement/del', '删除', 'fa fa-circle-o', '', '', '0', '1578383812', '1578383812', '0', 'normal');
+INSERT INTO `fa_auth_rule` VALUES ('321', 'file', '316', 'app/achievement/multi', '批量更新', 'fa fa-circle-o', '', '', '0', '1578383812', '1578383812', '0', 'normal');
 
 -- ----------------------------
 -- Table structure for fa_calendar
@@ -1606,7 +1634,7 @@ CREATE TABLE `fa_command` (
   `updatetime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   `status` enum('successed','failured') NOT NULL DEFAULT 'failured' COMMENT '状态',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='在线命令表';
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='在线命令表';
 
 -- ----------------------------
 -- Records of fa_command
@@ -1661,6 +1689,8 @@ INSERT INTO `fa_command` VALUES ('47', 'crud', '[\"--table=fa_app_plan\",\"--con
 INSERT INTO `fa_command` VALUES ('48', 'menu', '[\"--controller=app\\/Plan\"]', 'php think menu --controller=app/Plan', 'Build Successed!', '1577883201', '1577883201', '1577883201', 'successed');
 INSERT INTO `fa_command` VALUES ('49', 'crud', '[\"--table=fa_app_message\",\"--controller=app\\/Message\",\"--relation=fa_app_user\",\"--relationmode=belongsto\",\"--relationforeignkey=user_id\",\"--relationprimarykey=id\",\"--relationfields=nickname,avatar\"]', 'php think crud --table=fa_app_message --controller=app/Message --relation=fa_app_user --relationmode=belongsto --relationforeignkey=user_id --relationprimarykey=id --relationfields=nickname,avatar', 'Build Successed', '1578325271', '1578325271', '1578325271', 'successed');
 INSERT INTO `fa_command` VALUES ('50', 'menu', '[\"--controller=app\\/Message\"]', 'php think menu --controller=app/Message', 'Build Successed!', '1578325279', '1578325279', '1578325279', 'successed');
+INSERT INTO `fa_command` VALUES ('51', 'crud', '[\"--table=fa_app_achievement\",\"--controller=app\\/Achievement\",\"--relation=fa_app_user\",\"--relationmode=belongsto\",\"--relationforeignkey=user_id\",\"--relationprimarykey=id\",\"--relationfields=nickname,avatar\"]', 'php think crud --table=fa_app_achievement --controller=app/Achievement --relation=fa_app_user --relationmode=belongsto --relationforeignkey=user_id --relationprimarykey=id --relationfields=nickname,avatar', 'Build Successed', '1578383807', '1578383807', '1578383807', 'successed');
+INSERT INTO `fa_command` VALUES ('52', 'menu', '[\"--controller=app\\/Achievement\"]', 'php think menu --controller=app/Achievement', 'Build Successed!', '1578383812', '1578383812', '1578383812', 'successed');
 
 -- ----------------------------
 -- Table structure for fa_config

@@ -5,6 +5,7 @@ namespace app\api\controller\v1\step;
 use app\api\controller\Api;
 use think\Loader;
 use app\admin\model\app\Step as StepModel;
+use app\admin\model\User as UserModel;
 
 class Step extends Api
 {
@@ -31,20 +32,31 @@ class Step extends Api
         $errCode = $pc->decryptData($encryptedData, $iv, $data);
         if ($errCode == 0) {
             $data = json_decode($data, true);
+            $userInfo = UserModel::get($this->user_id);
             $timeStampArr = StepModel::where([
                 'user_id' => $this->user_id
-            ])->column('timestamp');
-            $insertData = [];
+            ])->column('id', 'timestamp');
+            $insertData = $updateData = [];
+            $existTimeStampArr = array_keys($timeStampArr);
             foreach ($data['stepInfoList'] as $key => $value) {
-                if (in_array($value['timestamp'], $timeStampArr)) continue;
-                $insertData[] = [
-                    'user_id' => $this->user_id,
-                    'step_number' => $value['step'],
-                    'timestamp' => $value['timestamp'],
-                ];
+                if (in_array($value['timestamp'], $existTimeStampArr)) {
+                    $updateData[] = [
+                        'id' => $timeStampArr[$value['timestamp']],
+                        'step_number' => $value['step'],
+                        'user_id' => $this->user_id,
+                        'timestamp' => $value['timestamp'],
+                    ];
+                } else {
+                    $insertData[] = [
+                        'user_id' => $this->user_id,
+                        'step_number' => $value['step'],
+                        'timestamp' => $value['timestamp'],
+                    ];
+                }
             }
 
-            (new StepModel())->saveAll($insertData);
+            (new StepModel())->isUpdate(false)->saveAll($insertData);
+            (new StepModel())->isUpdate(true)->saveAll($updateData);
             $this->returnmsg(200, $data);
         } else {
             dump([
